@@ -1,6 +1,4 @@
-/* Portfolio — Agustín Campos
-   Lo mínimo indispensable: menú mobile, sección activa y año del footer.
-   Sin librerías. */
+/* Portfolio — Agustín Campos */
 
 (function () {
   'use strict';
@@ -15,16 +13,12 @@
       nav.dataset.open = String(!open);
       toggle.setAttribute('aria-expanded', String(!open));
     });
-
-    // Al elegir una sección, cerrar el menú.
     nav.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') {
         nav.dataset.open = 'false';
         toggle.setAttribute('aria-expanded', 'false');
       }
     });
-
-    // Escape cierra y devuelve el foco al botón.
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && nav.dataset.open === 'true') {
         nav.dataset.open = 'false';
@@ -62,7 +56,6 @@
       entries.forEach(function (entry) {
         var v = entry.target;
         if (entry.isIntersecting) {
-          // play() devuelve una promesa que rechaza si el navegador lo bloquea.
           var p = v.play();
           if (p && p.catch) p.catch(function () {});
         } else {
@@ -74,10 +67,7 @@
     videos.forEach(function (v) { vObs.observe(v); });
   }
 
-  /* Email ---------------------------------------------------------------
-     La dirección no viaja entera en el HTML: se arma acá. Los rastreadores de
-     spam leen el fuente buscando "mailto:" o algo@algo y no encuentran nada.
-     Sin JavaScript queda el <noscript> con la dirección en palabras. */
+  /* Email -------------------------------------------------------------- */
   Array.prototype.forEach.call(document.querySelectorAll('.mail'), function (el) {
     var dir = el.dataset.u + String.fromCharCode(64) + el.dataset.d;
     var a = document.createElement('a');
@@ -87,8 +77,7 @@
     el.appendChild(a);
   });
 
-  /* Aparición al hacer scroll -------------------------------------------
-     La clase en <html> evita el parpadeo: sin JS nada se oculta. */
+  /* Aparición al hacer scroll ------------------------------------------ */
   if (!quieto.matches && 'IntersectionObserver' in window) {
     document.documentElement.classList.add('js-anim');
 
@@ -99,13 +88,13 @@
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         entry.target.classList.add('visible');
-        obs.unobserve(entry.target);          // una sola vez: no reaparece al volver
+        obs.unobserve(entry.target);
       });
     }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
 
     Array.prototype.forEach.call(piezas, function (el, i) {
       el.classList.add('revelar');
-      el.style.transitionDelay = (i % 3) * 70 + 'ms';   // escalonado corto dentro de cada fila
+      el.style.transitionDelay = (i % 3) * 70 + 'ms';
       aparecer.observe(el);
     });
   }

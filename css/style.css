@@ -1,11 +1,3 @@
-/* ============================================================
-   Agustín Campos — portfolio
-   Sin dependencias. Un solo archivo. Light + dark.
-   Tipografías propias, servidas desde el sitio: Space Grotesk para
-   los títulos —una grotesca con carácter, que le da voz a la página—
-   e Inter para el texto, que es la que tiene que desaparecer al leer.
-   ============================================================ */
-
 @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;
   src:url(../fonts/inter-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 @font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;
@@ -97,8 +89,6 @@ a:hover { color: var(--accent); }
 .nav a:hover, .nav a[aria-current="true"] { color: var(--deep); }
 .nav a[aria-current="true"] { font-weight: 600; }
 
-/* Selector de idioma: al final de la barra, después de los enlaces, y siempre
-   visible —también con el menú cerrado en mobile—. */
 .lang {
   display: flex; align-items: center; gap: .35rem; margin: 0 0 0 1.75rem;
   font-size: .875rem; font-weight: 700; letter-spacing: .05em;
@@ -165,8 +155,7 @@ a:hover { color: var(--accent); }
   color: var(--mid);
 }
 .sect__h::after { content: ""; display: block; width: 2.5rem; height: 2px; background: var(--accent); margin-top: .6rem; }
-/* Sin tope de ancho: el contenedor ya limita a 1120px y la bajada entra en una
-   línea, que es como se lee mejor debajo del título de sección. */
+
 .sect__intro { margin: 0 0 3rem; color: var(--ink-2); font-size: 1.125rem; }
 
 /* ── Casos ──────────────────────────────────────────────── */
@@ -179,12 +168,8 @@ a:hover { color: var(--accent); }
 .case:first-of-type { border-top: 0; padding-top: 0; }
 .case--alt .case__media { order: 2; }
 
-/* Caso sin material público: ocupa el ancho completo y se apoya en un panel,
-   para que la ausencia de imagen se lea como decisión y no como hueco. */
 .case--full { grid-template-columns: 1fr; }
-/* Encabezado arriba a todo el ancho y los cuatro bloques repartidos en dos
-   columnas. Van en columnas CSS y no en grilla porque "Qué hice" es mucho más
-   largo que el resto: así el navegador equilibra las alturas solo. */
+
 .case--full .case__head { max-width: 62ch; margin-bottom: 2rem; }
 .case--full .case__head h3 { margin-bottom: 0; }
 .case--full .facts {
@@ -197,7 +182,7 @@ a:hover { color: var(--accent); }
 
 .case__media { display: grid; gap: 1rem; position: sticky; top: 5.5rem; }
 .case__media figure { margin: 0; }
-/* Una imagen principal a todo el ancho y las secundarias a la mitad. */
+
 .case__media--mosaico { grid-template-columns: 1fr 1fr; }
 .case__media--mosaico > figure:first-child { grid-column: 1 / -1; }
 .case__media--mosaico > figure:not(:first-child) figcaption { font-size: .75rem; }
@@ -211,8 +196,6 @@ a:hover { color: var(--accent); }
 }
 .case__media figcaption { margin-top: .5rem; font-size: .8125rem; color: var(--ink-2); }
 
-/* Numeración de casos: da orden de lectura y es lo que hace que los seis
-   se lean como una serie y no como seis bloques sueltos. */
 .case__num {
   margin: 0 0 .25rem; font-family: var(--display); font-weight: 700;
   font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: .85; letter-spacing: -.05em;
@@ -242,8 +225,6 @@ a:hover { color: var(--accent); }
 .case__links { display: flex; flex-wrap: wrap; gap: 1.25rem; margin: 0; font-weight: 600; }
 .case__links a::after { content: " ↗"; font-weight: 400; }
 
-/* Franja de marcas que cierra el bloque de Improntus. El filete de abajo lo
-   pone el borde superior del caso siguiente, así queda encuadrada sin duplicar líneas. */
 .marcas { border-top: 1px solid var(--line); padding-block: 2.25rem; }
 .marcas__label {
   margin: 0; font-size: .75rem; font-weight: 700; letter-spacing: .12em;
@@ -261,15 +242,13 @@ a:hover { color: var(--accent); }
   content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
 }
 .marcas__list li:last-child::after { display: none; }
-/* No es una marca más: va en el tono del texto secundario y sin el peso de las otras. */
+
 .marcas__mas { font-size: 1rem; font-weight: 400; color: var(--ink-2); letter-spacing: 0; }
 
 .otros { margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
 .otros h3 { margin: 0 0 .6rem; font-family: var(--display); font-weight: 700; font-size: 1.375rem; letter-spacing: -.02em; color: var(--deep); }
 .otros__intro { margin: 0 0 2rem; color: var(--ink-2); }
 
-/* Todas las piezas van en cuadrado: con proporciones distintas, una columna
-   siempre terminaba mucho más abajo que las otras. */
 .grid-otros {
   list-style: none; margin: 0 0 2.5rem; padding: 0;
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.25rem 1.75rem;
@@ -284,10 +263,8 @@ a:hover { color: var(--accent); }
 .grid-otros figcaption { margin-top: .75rem; font-size: .9375rem; color: var(--ink-2); }
 .grid-otros figcaption b { display: block; font-family: var(--display); font-weight: 700; color: var(--deep); font-size: 1.0625rem; letter-spacing: -.015em; margin-bottom: .25rem; }
 
-
 /* ── Cómo trabajo ───────────────────────────────────────── */
-/* Dos por dos y no cuatro en fila: con cuatro columnas los renglones quedan
-   de seis palabras y el texto deja de leerse como explicación. */
+
 .cols4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem clamp(2rem, 5vw, 4rem); }
 .cols4 h3 { margin: 0 0 .6rem; font-family: var(--display); font-weight: 700; font-size: 1.1875rem; letter-spacing: -.02em; color: var(--deep); }
 .cols4 p { margin: 0; color: var(--ink-2); }
@@ -334,7 +311,7 @@ a:hover { color: var(--accent); }
   position: fixed; right: clamp(1rem, 3vw, 2rem); bottom: clamp(1rem, 3vw, 2rem); z-index: 60;
   display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%;
   background: var(--deep); color: var(--bg);
-  /* El anillo del color del fondo lo despega tanto del hero oscuro como de las secciones claras. */
+  
   box-shadow: 0 0 0 2px var(--bg), 0 4px 16px rgba(0,0,0,.25); text-decoration: none;
   transition: transform .15s, background .15s;
 }
@@ -365,8 +342,7 @@ a:hover { color: var(--accent); }
 }
 
 @media (max-width: 720px) {
-  /* En mobile el nav sale del flujo, así que el idioma se empuja a la derecha
-     con margin auto y el botón de menú queda a su lado. */
+  
   .topbar__in { justify-content: flex-start; }
   .navtoggle { display: inline-flex; order: 9; }
   .lang { margin-left: auto; margin-right: .9rem; }
@@ -391,8 +367,7 @@ a:hover { color: var(--accent); }
 }
 
 /* ── Aparición al hacer scroll ───────────────────────────── */
-/* Solo se activa si hay JavaScript (la clase la pone main.js) y si el
-   sistema no pidió movimiento reducido. Sin JS, todo se ve normal. */
+
 .js-anim .revelar {
   opacity: 0; transform: translateY(18px);
   transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.3,1);
@@ -404,9 +379,7 @@ a:hover { color: var(--accent); }
 }
 
 /* ── Pantallas muy angostas (plegables, 320–420 px) ─────── */
-/* Cuatro elementos no entran en la barra: la marca se queda con la foto
-   —el nombre está en el hero, dos dedos más abajo— y el botón con el ícono.
-   El selector de idioma se mantiene, que es lo que no conviene esconder. */
+
 @media (max-width: 430px) {
   .brand span { display: none; }
   .navtoggle__txt { display: none; }
