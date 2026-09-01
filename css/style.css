@@ -90,6 +90,7 @@ a:hover { color: var(--accent); }
 }
 .brand img { width: 32px; height: 32px; border-radius: 50%; flex: 0 0 auto; }
 .nav { margin-left: auto; }
+.nav__cab, .nav__pie { display: none; }
 .nav ul { display: flex; gap: 1.75rem; list-style: none; margin: 0; padding: 0; }
 .nav a {
   position: relative;
@@ -354,7 +355,7 @@ a:hover { color: var(--accent); }
 .case__num {
   margin: 0 0 .25rem; font-family: var(--display);
   font-size: clamp(2.5rem, 4.4vw, 3.25rem); line-height: .85; letter-spacing: -.06em;
-  font-weight: 400; color: var(--accent); opacity: .32;
+  font-weight: 400; color: var(--accent); opacity: .55;
 }
 .case--full .case__num { margin-bottom: .5rem; }
 
@@ -527,14 +528,76 @@ a:hover { color: var(--accent); }
   .topbar__in { justify-content: flex-start; }
   .navtoggle { display: inline-flex; order: 9; }
   .lang { margin-left: auto; margin-right: .9rem; }
+  /* El backdrop-filter del topbar crea un bloque contenedor y el panel
+     fijo se dimensionaba contra la barra, no contra la ventana. */
+    .topbar { backdrop-filter: none; background: var(--bg); }
+  /* .topbar crea contexto de apilado: el z-index del panel es interno a él,
+     así que con el menú abierto la barra entera pasa por encima. */
+  .topbar:has(.nav[data-open="true"]) { z-index: 80; }
+
+  /* Panel a pantalla completa, no un desplegable pegado a la barra */
   .nav {
-    position: absolute; left: 0; right: 0; top: 100%;
-    background: var(--bg); border-bottom: 1px solid var(--line);
-    display: none; padding: .5rem 0 1rem;
+    position: fixed; inset: 0; z-index: 70;
+    display: flex; flex-direction: column;
+    padding: clamp(1.25rem, 5vw, 2rem);
+    background: var(--bg);
+    overflow-y: auto; overscroll-behavior: contain;
+    opacity: 0; visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity .28s ease, transform .32s cubic-bezier(.22,1,.36,1), visibility .28s;
   }
-  .nav[data-open="true"] { display: block; }
-  .nav ul { flex-direction: column; gap: 0; width: min(100% - 2.5rem, var(--wrap)); margin-inline: auto; }
-  .nav a { display: block; padding: .7rem 0; border-bottom: 1px solid var(--line); font-size: 1rem; }
+  .nav[data-open="true"] { opacity: 1; visibility: visible; transform: none; }
+
+  .nav__cab, .nav__pie { display: block; }
+  .nav__cab {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 1.25rem; margin-bottom: .5rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .nav__kicker {
+    margin: 0; font-family: var(--display);
+    font-size: .6875rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .nav__cerrar {
+    display: grid; place-items: center; width: 2.6rem; height: 2.6rem;
+    border-radius: 50%; cursor: pointer;
+    background: none; border: 1px solid var(--line); color: var(--ink);
+    transition: background .2s ease, border-color .2s ease;
+  }
+  .nav__cerrar:hover { background: var(--bg-soft); border-color: var(--accent); }
+
+  .nav ul { flex-direction: column; gap: 0; margin: auto 0; }
+  .nav li { border-bottom: 1px solid var(--line); }
+  .nav li:last-child { border-bottom: 0; }
+  .nav a {
+    display: flex; align-items: baseline; gap: 1rem;
+    padding: clamp(.85rem, 2.6vw, 1.15rem) 0;
+    font-family: var(--display);
+    font-size: clamp(1.75rem, 8vw, 2.5rem); font-weight: 400;
+    letter-spacing: -.04em; line-height: 1.05;
+    color: var(--ink); white-space: normal;
+  }
+  .nav a::after { display: none; }
+  .nav i {
+    display: block; flex: none; width: 1.75rem;
+    font-size: .8125rem; opacity: .7;
+  }
+  .nav a:hover i, .nav a[aria-current="true"] i { opacity: 1; }
+  .nav a[aria-current="true"] { color: var(--deep); }
+
+  .nav__pie {
+    padding-top: 1.5rem; margin-top: 1rem;
+    border-top: 1px solid var(--line);
+  }
+  .nav__lugar { margin: 0 0 .75rem; font-size: .875rem; color: var(--ink-2); }
+  .nav__links { display: flex; gap: 1.5rem; margin: 0; }
+  .nav__links a {
+    display: inline; padding: 0;
+    font-family: var(--sans); font-size: .9375rem; font-weight: 600;
+    letter-spacing: 0; color: var(--deep);
+  }
+  .nav__links a::after { content: " ↗"; font-weight: 400; }
   .topbar__in { position: relative; }
   .perfilsw { margin-left: auto; }
 }
@@ -826,3 +889,37 @@ a:hover { color: var(--accent); }
     opacity: .38;
   }
 }
+
+/* ── Casos: carrusel en mobile ───────────────────────────────
+   Apilados eran unos 4000 px de scroll. En fila deslizable el
+   bloque entero ocupa poco más que una tarjeta. */
+.casos__desliza { display: none; }
+
+@media (max-width: 900px) {
+  .casos__pista {
+    display: flex; gap: 1rem;
+    overflow-x: auto; scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    padding-inline: 0 14%;
+    margin-inline: calc(var(--sangria, 0px) * -1);
+  }
+  .casos__pista::-webkit-scrollbar { display: none; }
+
+  .casos__pista > .case {
+    flex: 0 0 86%; scroll-snap-align: start;
+    margin-bottom: 0;
+  }
+  /* Todas las tarjetas del carrusel miden lo mismo */
+  .casos__pista > .case { align-self: stretch; }
+  .case__body { min-height: 0; }
+
+  .casos__desliza {
+    display: block; margin: 0 0 1rem;
+    font-size: .8125rem; color: var(--ink-2);
+  }
+  .casos__desliza::after { content: " →"; }
+}
+
+/* La franja de marcas ya no interrumpe la tanda de casos */
+.marcas { margin-top: clamp(1.5rem, 3vw, 2.25rem); }

@@ -35,6 +35,15 @@
       <span class="navtoggle__txt">Menú</span>
     </button>
     <nav id="nav" class="nav" aria-label="Principal">
+      <div class="nav__cab">
+        <p class="nav__kicker">Navegación</p>
+        <button class="nav__cerrar" type="button" aria-label="Cerrar el menú">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor"
+                  stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
       <ul>
         <li><a href="#casos"><i aria-hidden="true">01</i>Casos</a></li>
         <li><a href="#proceso"><i aria-hidden="true">02</i>Cómo trabajo</a></li>
@@ -42,6 +51,13 @@
         <li><a href="#trayectoria"><i aria-hidden="true">04</i>Trayectoria</a></li>
         <li><a href="#contacto"><i aria-hidden="true">05</i>Contacto</a></li>
       </ul>
+      <div class="nav__pie">
+        <p class="nav__lugar">Buenos Aires, Argentina · UTC−3</p>
+        <p class="nav__links">
+          <a href="../cv/CV-Agustin-Campos-Diseno-ES.pdf" target="_blank" rel="noopener">Ver el CV</a>
+          <a href="https://linkedin.com/in/aguscamps" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+      </div>
     </nav>
     <nav class="perfilsw" aria-label="Elegí el perfil">
       <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg><span class="perfilsw__t">Frontend</span></a>
@@ -114,6 +130,8 @@
       </p>
 
       <!-- CASO 1 -->
+        <p class="casos__desliza">Deslizá para recorrer los 4 casos</p>
+      <div class="casos__pista">
       <article class="case" id="caso-sparta">
         <div class="case__media">
           <figure>
@@ -347,6 +365,7 @@
           </p>
         </div>
       </article>
+      </div>
 
       <!-- OTROS -->
       <div class="otros">

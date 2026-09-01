@@ -10,22 +10,37 @@
   var nav = document.getElementById('nav');
 
   if (toggle && nav) {
+    var cerrarMenu = nav.querySelector('.nav__cerrar');
+
+    function abrirMenu(abrir) {
+      nav.dataset.open = String(abrir);
+      toggle.setAttribute('aria-expanded', String(abrir));
+      /* El panel ocupa toda la pantalla: se bloquea el scroll de atrás */
+      document.body.style.overflow = abrir ? 'hidden' : '';
+      /* El panel entra con una transición de visibility: enfocar antes
+         de que sea visible no tiene efecto. */
+      if (abrir && cerrarMenu) requestAnimationFrame(function () { cerrarMenu.focus(); });
+      else if (!abrir) toggle.focus();
+    }
+
     toggle.addEventListener('click', function () {
-      var open = nav.dataset.open === 'true';
-      nav.dataset.open = String(!open);
-      toggle.setAttribute('aria-expanded', String(!open));
+      abrirMenu(nav.dataset.open !== 'true');
     });
+    if (cerrarMenu) cerrarMenu.addEventListener('click', function () { abrirMenu(false); });
+
     nav.addEventListener('click', function (e) {
-      if (e.target.closest('a')) {
-        nav.dataset.open = 'false';
-        toggle.setAttribute('aria-expanded', 'false');
-      }
+      if (e.target.closest('a')) abrirMenu(false);
     });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && nav.dataset.open === 'true') {
+      if (e.key === 'Escape' && nav.dataset.open === 'true') abrirMenu(false);
+    });
+
+    /* Si se agranda la ventana con el panel abierto, se cierra solo */
+    window.matchMedia('(min-width: 1101px)').addEventListener('change', function (e) {
+      if (e.matches && nav.dataset.open === 'true') {
         nav.dataset.open = 'false';
         toggle.setAttribute('aria-expanded', 'false');
-        toggle.focus();
+        document.body.style.overflow = '';
       }
     });
   }
