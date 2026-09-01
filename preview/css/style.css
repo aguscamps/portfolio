@@ -917,13 +917,47 @@ a:hover { color: var(--accent); }
   }
   .casos__pista::-webkit-scrollbar { display: none; }
 
+  /* Todas las tarjetas miden lo mismo y entran en una pantalla.
+     La tarjeta es un adelanto: el texto completo vive en el panel. */
   .casos__pista > .case {
     flex: 0 0 86%; scroll-snap-align: start;
     margin-bottom: 0;
+    height: min(78vh, 620px);
+    display: flex; flex-direction: column;
   }
-  /* Todas las tarjetas del carrusel miden lo mismo */
-  .casos__pista > .case { align-self: stretch; }
-  .case__body { min-height: 0; }
+
+  /* Misma altura de imagen en todas las que tienen material */
+  .casos__pista > .case > .case__media {
+    flex: 0 0 13rem; height: 13rem;
+    padding: 1rem; border-right: 0; border-bottom: 1px solid var(--line);
+  }
+  .casos__pista > .case > .case__media img,
+  .casos__pista > .case > .case__media video {
+    max-height: 100%; height: 100%; width: 100%; object-fit: contain;
+  }
+
+  .casos__pista > .case > .case__body {
+    flex: 1 1 auto; min-height: 0; overflow: hidden;
+    padding: 1.25rem;
+  }
+  .casos__pista .case__num { font-size: 2rem; margin-bottom: .15rem; }
+  .casos__pista .case__body h3 { font-size: 1.35rem; margin-bottom: .8rem; }
+  .casos__pista .case__meta { margin-bottom: .4rem; }
+
+  /* El resumen se corta a cuatro líneas con un desvanecido. No se usa
+     -webkit-line-clamp porque dentro de un contenedor flex el display
+     -webkit-box se anula y el recorte queda a la mitad de un renglón. */
+  .casos__pista .case__resumen {
+    margin-bottom: 1rem;
+    max-height: calc(1.62em * 3); overflow: hidden;
+    mask-image: linear-gradient(#000 72%, transparent);
+  }
+  /* Dos filas de etiquetas completas, sin cortar ninguna */
+  .casos__pista .tags {
+    max-height: 4.75rem; overflow: hidden; margin-bottom: .9rem;
+    align-content: flex-start;
+  }
+  .casos__pista .case__acciones { margin-top: auto; padding-top: 0; }
 
   .casos__desliza {
     display: block; margin: 0 0 1rem;
