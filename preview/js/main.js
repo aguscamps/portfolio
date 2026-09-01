@@ -49,10 +49,14 @@
     targets.forEach(function (t) { observer.observe(t); });
   }
 
-  /* Video: se reproduce solo mientras está a la vista ------------------ */
+  /* Video: se reproduce solo mientras está a la vista ------------------
+     Se saltea si el visitante pidió ahorrar datos o está en una conexión
+     lenta: el video pesa 460 KB y no vale la pena imponérselo.          */
   var videos = Array.prototype.slice.call(document.querySelectorAll('.case__media video'));
+  var red = navigator.connection || {};
+  var ahorrando = red.saveData === true || /^([23]g|slow-2g)$/.test(red.effectiveType || '');
 
-  if (videos.length && 'IntersectionObserver' in window && !quieto.matches) {
+  if (videos.length && 'IntersectionObserver' in window && !quieto.matches && !ahorrando) {
     var vObs = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         var v = entry.target;
