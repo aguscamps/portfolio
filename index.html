@@ -43,11 +43,15 @@
         <li><a href="#contacto"><i aria-hidden="true">05</i>Contacto</a></li>
       </ul>
     </nav>
-    <nav class="lang" aria-label="Idioma">
-      <span class="lang__opt lang__opt--on" aria-current="true">ES</span>
-      <a class="lang__opt" href="en/index.html" hreflang="en" lang="en"
-         aria-label="Switch to English">EN</a>
+    <nav class="perfilsw" aria-label="Elegí el perfil">
+      <span aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg><span class="perfilsw__t">Frontend</span></span>
+      <a href="diseno/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5zM2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg><span class="perfilsw__t">Diseño UX/UI</span></a>
     </nav>
+    <a class="lang" href="en/index.html" hreflang="en"
+       lang="en" aria-label="ES / EN · Switch to English">
+      <span class="lang__actual" aria-hidden="true">ES</span>
+      <span class="lang__otro" aria-hidden="true">EN</span>
+    </a>
   </div>
 </header>
 
@@ -55,6 +59,11 @@
 
   <!-- ─────────────────────────────  HERO  ───────────────────────────── -->
   <section class="hero" id="inicio">
+    <div class="hero__rostro" aria-hidden="true">
+      <img src="img/hero-fondo.webp" width="1500" height="1250" fetchpriority="high"
+           srcset="img/hero-fondo-900.webp 900w, img/hero-fondo.webp 1500w"
+           sizes="(max-width: 900px) 100vw, 72vw" alt="">
+    </div>
     <div class="wrap hero__in">
       <div class="hero__txt">
       <p class="hero__kicker">Agustín Carlos Campos Bobbiesi</p>
@@ -83,11 +92,6 @@
         <span>· vigente hasta marzo de 2028</span>
       </p>
       </div>
-      <div class="hero__foto">
-        <img src="img/retrato.webp" width="512" height="512" fetchpriority="high"
-             srcset="img/retrato-256.webp 256w, img/retrato.webp 512w" sizes="(max-width: 900px) 210px, 300px"
-             alt="Retrato de Agustín Campos.">
-      </div>
       <dl class="hero__panel">
         <dt>Especialidad</dt>
         <dd>Frontend de e-commerce sobre Magento&nbsp;2 / Adobe Commerce</dd>
@@ -96,19 +100,6 @@
         <dt>Modalidad</dt>
         <dd>Buenos Aires (UTC−3) · remoto o presencial · jornada completa</dd>
       </dl>
-      <div class="hero__switch">
-        <p class="perfilsw__lead">Dos perfiles, una misma trayectoria</p>
-        <nav class="perfilsw" aria-label="Elegí el perfil">
-          <span aria-current="page">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
-            Frontend
-          </span>
-          <a href="diseno/">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5zM2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
-            Diseño UX/UI
-          </a>
-        </nav>
-      </div>
     </div>
   </section>
 
