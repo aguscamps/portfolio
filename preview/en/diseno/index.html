@@ -44,11 +44,15 @@
         <li><a href="#contact"><i aria-hidden="true">05</i>Contact</a></li>
       </ul>
     </nav>
-    <nav class="lang" aria-label="Language">
-      <a class="lang__opt" href="../../diseno/index.html" hreflang="es" lang="es"
-         aria-label="Cambiar a español">ES</a>
-      <span class="lang__opt lang__opt--on" aria-current="true">EN</span>
+    <nav class="perfilsw" aria-label="Choose profile">
+      <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg><span class="perfilsw__t">Front-End</span></a>
+      <span aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5zM2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg><span class="perfilsw__t">UX/UI Design</span></span>
     </nav>
+    <a class="lang" href="../../diseno/index.html" hreflang="es"
+       lang="es" aria-label="EN / ES · Cambiar a español">
+      <span class="lang__actual" aria-hidden="true">EN</span>
+      <span class="lang__otro" aria-hidden="true">ES</span>
+    </a>
   </div>
 </header>
 
@@ -56,6 +60,11 @@
 
   <!-- ─────────────────────────────  HERO  ───────────────────────────── -->
   <section class="hero" id="home">
+    <div class="hero__rostro" aria-hidden="true">
+      <img src="../../img/hero-fondo.webp" width="1500" height="1250" fetchpriority="high"
+           srcset="../../img/hero-fondo-900.webp 900w, ../../img/hero-fondo.webp 1500w"
+           sizes="(max-width: 900px) 100vw, 72vw" alt="">
+    </div>
     <div class="wrap hero__in">
       <div class="hero__txt">
       <p class="hero__kicker">Agustín Carlos Campos Bobbiesi</p>
@@ -85,11 +94,6 @@
         <span>· Adobe Certified Expert in Adobe Commerce, valid through March 2028</span>
       </p>
       </div>
-      <div class="hero__foto">
-        <img src="../../img/retrato.webp" width="512" height="512" fetchpriority="high"
-             srcset="../../img/retrato-256.webp 256w, ../../img/retrato.webp 512w" sizes="(max-width: 900px) 210px, 300px"
-             alt="Portrait of Agustín Campos.">
-      </div>
       <dl class="hero__panel">
         <dt>Focus</dt>
         <dd>E-commerce interface design on Magento&nbsp;2 / Adobe Commerce</dd>
@@ -98,19 +102,6 @@
         <dt>Availability</dt>
         <dd>Buenos Aires (UTC−3) · remote or on-site · full-time</dd>
       </dl>
-      <div class="hero__switch">
-        <p class="perfilsw__lead">Two profiles, one career</p>
-        <nav class="perfilsw" aria-label="Choose a profile">
-          <a href="../">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
-            Frontend
-          </a>
-          <span aria-current="page">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5zM2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
-            UI/UX Design
-          </span>
-        </nav>
-      </div>
     </div>
   </section>
 

@@ -82,7 +82,7 @@ a:hover { color: var(--accent); }
   backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--line);
 }
-.topbar__in { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4rem; }
+.topbar__in { display: flex; align-items: center; gap: 1rem; min-height: 4.5rem; }
 .brand {
   display: flex; align-items: center; gap: .65rem; font-family: var(--display);
   font-weight: 500; color: var(--ink); text-decoration: none;
@@ -95,7 +95,7 @@ a:hover { color: var(--accent); }
   position: relative;
   display: inline-flex; align-items: baseline; gap: .45rem;
   padding-block: .35rem;
-  color: var(--ink-2); text-decoration: none;
+  color: var(--ink-2); text-decoration: none; white-space: nowrap;
   font-size: .9375rem; letter-spacing: -.005em;
   transition: color .22s ease;
 }
@@ -119,36 +119,88 @@ a:hover { color: var(--accent); }
 }
 .nav a:hover i, .nav a[aria-current="true"] i { opacity: 1; }
 
-/* Entre 720 y 1010 px la barra completa no entra: se van los números */
-@media (max-width: 1010px) {
-  .nav ul { gap: 1.15rem; }
+/* Entre 1100 y 1240 px la barra va justa: se van los números */
+@media (max-width: 1420px) {
+  .nav ul { gap: 1.2rem; }
   .nav i { display: none; }
-  .lang { margin-left: .9rem; }
+}
+/* Con el menú ya plegado, el selector de perfil queda en iconos */
+@media (max-width: 860px) {
+  /* Oculta a la vista pero presente para lectores de pantalla: si se usa
+     display:none el enlace se queda sin nombre accesible. */
+  .perfilsw__t {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+  }
+  .perfilsw > a, .perfilsw > span { padding: .45rem .6rem; }
+  .perfilsw svg { width: 15px; height: 15px; }
+}
+@media (max-width: 430px) {
+  .perfilsw { margin-left: auto; }
+  .lang { margin-left: .6rem; }
 }
 
 /* ── Selector de idioma ─────────────────────────────────────
-   Mismo lenguaje visual que el selector de perfil del hero: una
-   cápsula con dos segmentos y el activo relleno. */
+   Control circular: el idioma activo al centro y el alternativo
+   como satélite. El anillo se completa al pasar el mouse. */
 .lang {
+  position: relative; flex: none;
+  display: grid; place-items: center;
+  width: 44px; height: 44px; margin-left: 1.1rem;
+  border-radius: 50%; text-decoration: none;
+  background: color-mix(in srgb, var(--bg-soft) 70%, transparent);
+  box-shadow: inset 0 0 0 1px var(--line);
+  transition: box-shadow .24s ease;
+}
+.lang::before {
+  content: ""; position: absolute; inset: 3px;
+  border-radius: 50%;
+  border: 1px solid var(--accent); border-right-color: transparent;
+  opacity: .55;
+  transform: rotate(-32deg);
+  transition: transform .55s cubic-bezier(.22,1,.36,1), opacity .24s ease;
+}
+.lang:hover::before, .lang:focus-visible::before { transform: rotate(148deg); opacity: 1; }
+.lang__actual {
+  font-family: var(--display); font-size: .75rem; font-weight: 500;
+  letter-spacing: .04em; color: var(--ink);
+}
+.lang__otro {
+  position: absolute; top: 0; right: -2px;
+  display: grid; place-items: center;
+  width: 21px; height: 21px; border-radius: 50%;
+  background: var(--bg);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 55%, transparent);
+  font-family: var(--display); font-size: .5625rem; font-weight: 500;
+  letter-spacing: .02em; color: var(--mid);
+  transition: transform .3s cubic-bezier(.22,1,.36,1), color .24s ease;
+}
+.lang:hover .lang__otro { transform: scale(1.12); color: var(--deep); }
+
+/* ── Selector de perfil, ahora en la barra ───────────────────── */
+.perfilsw {
   display: inline-flex; align-items: stretch; gap: .15rem;
-  margin: 0 0 0 1.5rem; padding: .2rem;
+  margin: 0 0 0 1.25rem; padding: .2rem; flex: none;
   border: 1px solid var(--line); border-radius: 999px;
   background: var(--bg-soft);
 }
-.lang__opt {
-  display: grid; place-items: center;
-  min-width: 2.4rem; padding: .3rem .55rem;
-  border-radius: 999px;
-  font-family: var(--display); font-size: .75rem; font-weight: 500;
-  letter-spacing: .08em; line-height: 1;
-  color: var(--ink-2); text-decoration: none;
-  transition: background .22s ease, color .22s ease;
+.perfilsw > a, .perfilsw > span {
+  display: flex; align-items: center; gap: .4rem;
+  padding: .4rem .85rem; border-radius: 999px;
+  font-family: var(--display); font-size: .8125rem; font-weight: 500;
+  letter-spacing: -.01em; line-height: 1;
+  text-decoration: none; white-space: nowrap;
+  color: var(--ink-2);
+  transition: background .2s ease, color .2s ease;
 }
-.lang a.lang__opt:hover { background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--ink); }
-.lang__opt--on { background: var(--deep); color: var(--bg); }
+.perfilsw > a:hover, .perfilsw > a:focus-visible {
+  background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--ink);
+}
+.perfilsw > [aria-current="page"] { background: var(--deep); color: var(--bg); }
 @media (prefers-color-scheme: dark) {
-  .lang__opt--on { background: var(--accent); color: #08131a; }
+  .perfilsw > [aria-current="page"] { background: var(--accent); color: #06121a; }
 }
+.perfilsw svg { width: 13px; height: 13px; flex: none; opacity: .8; }
 
 .navtoggle {
   display: none; align-items: center; gap: .5rem;
@@ -161,19 +213,19 @@ a:hover { color: var(--accent); }
 .hero {
   position: relative; isolation: isolate; overflow: hidden;
   background:
-    radial-gradient(760px 620px at 76% 28%, rgba(60,190,220,.14), transparent 64%),
-    radial-gradient(900px 560px at 20% 4%, rgba(32,120,150,.13), transparent 60%),
-    radial-gradient(600px 400px at 92% 88%, rgba(120,90,190,.07), transparent 62%),
+    radial-gradient(700px 560px at 70% 32%, rgba(60,190,220,.11), transparent 64%),
+    radial-gradient(900px 560px at 16% 6%, rgba(32,120,150,.10), transparent 60%),
     linear-gradient(180deg, #05070a 0%, #070b10 55%, #090e14 100%);
   color: #f2eee8;
   padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(3rem, 6vw, 4.5rem);
 }
-.hero__in { width: min(100% - 2.5rem, var(--wrap)); margin-inline: auto; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
-.hero__foto { align-self: start; }
-.hero__foto img {
-  width: clamp(210px, 24vw, 300px); height: auto;
-  filter: drop-shadow(0 18px 48px rgba(0,0,0,.45));
+.hero__in {
+  width: min(100% - 2.5rem, var(--wrap)); margin-inline: auto;
+  display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+  gap: clamp(2rem, 5vw, 3.5rem); align-items: center;
 }
+.hero__txt { grid-column: 1; }
+.hero__panel { grid-column: 2; justify-self: end; align-self: center; }
 .hero__kicker {
   margin: 0 0 1.1rem; font-family: var(--display);
   font-size: .8125rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
@@ -471,8 +523,7 @@ a:hover { color: var(--accent); }
   .stack dt + dd { padding-bottom: 1rem; }
 }
 
-@media (max-width: 720px) {
-  
+@media (max-width: 1100px) {
   .topbar__in { justify-content: flex-start; }
   .navtoggle { display: inline-flex; order: 9; }
   .lang { margin-left: auto; margin-right: .9rem; }
@@ -485,6 +536,10 @@ a:hover { color: var(--accent); }
   .nav ul { flex-direction: column; gap: 0; width: min(100% - 2.5rem, var(--wrap)); margin-inline: auto; }
   .nav a { display: block; padding: .7rem 0; border-bottom: 1px solid var(--line); font-size: 1rem; }
   .topbar__in { position: relative; }
+  .perfilsw { margin-left: auto; }
+}
+
+@media (max-width: 720px) {
   .hero__facts { gap: 1.75rem; }
   .contacto__list li { grid-template-columns: 1fr; gap: .15rem; }
   .grid-otros { grid-template-columns: 1fr; gap: 2rem; }
@@ -527,7 +582,7 @@ a:hover { color: var(--accent); }
 
 /* Entrada del hero, por tiempo: es lo primero que se ve, no hay scroll todavía */
 @media (prefers-reduced-motion: no-preference) {
-  .hero__txt > *, .hero__foto, .hero__panel, .hero__switch {
+  .hero__txt > *, .hero__panel, .hero__rostro {
     animation: entrar .7s cubic-bezier(.2,.7,.3,1) both;
   }
   .hero__kicker { animation-delay: .02s; }
@@ -536,9 +591,8 @@ a:hover { color: var(--accent); }
   .hero__facts { animation-delay: .2s; }
   .hero__cta { animation-delay: .26s; }
   .hero__cert { animation-delay: .32s; }
-  .hero__foto { animation-delay: .1s; }
+  .hero__rostro { animation-delay: 0s; animation-duration: 1.1s; }
   .hero__panel { animation-delay: .22s; }
-  .hero__switch { animation-delay: .3s; }
 }
 
 /* ── Pantallas muy angostas (plegables, 320–420 px) ─────── */
@@ -551,53 +605,11 @@ a:hover { color: var(--accent); }
   .wrap { width: min(100% - 1.75rem, var(--wrap)); }
 }
 
-/* ── Selector de perfil (frontend / diseño) ─────────────── */
-.hero__in { grid-template-rows: max-content max-content 1fr; align-items: start; row-gap: 0; }
-.hero__txt   { grid-column: 1; grid-row: 1 / span 3; align-self: center; }
-.hero__foto  { grid-column: 2; grid-row: 1; }
-.hero__panel { grid-column: 2; grid-row: 2; justify-self: center; }
-.hero__switch{ grid-column: 2; grid-row: 3; text-align: center; align-self: start; }
-.perfilsw__lead {
-  margin: .85rem 0 .4rem; font-size: .75rem; color: #7f9fa9;
-  letter-spacing: .01em;
-}
-.perfilsw {
-  display: inline-flex; align-items: stretch; gap: .15rem;
-  margin: 0; padding: .2rem;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.11);
-  border-radius: 999px;
-}
-.perfilsw a,
-.perfilsw span {
-  display: flex; align-items: center; gap: .4rem;
-  padding: .42rem .85rem; border-radius: 999px;
-  font-family: var(--display); font-size: .8125rem; font-weight: 500; letter-spacing: -.01em;
-  line-height: 1; text-decoration: none; white-space: nowrap;
-  transition: background .2s ease, color .2s ease;
-}
-.perfilsw a { color: #8fa8b1; }
-.perfilsw a:hover,
-.perfilsw a:focus-visible { background: rgba(255,255,255,.07); color: #cfe6ec; }
-.perfilsw [aria-current="page"] {
-  background: rgba(255,255,255,.09); color: #cfe6ec;
-}
-.perfilsw svg { width: 13px; height: 13px; flex: none; opacity: .75; }
-
-@media (max-width: 420px) {
-  .perfilsw { width: 100%; }
-  .perfilsw a, .perfilsw span { flex: 1; justify-content: center; padding: .5rem .5rem; font-size: .875rem; }
-  .perfilsw svg { display: none; }
-}
-
 @media (max-width: 900px) {
-  .hero__in { grid-template-rows: none; row-gap: 2rem; }
-  .hero__txt, .hero__foto, .hero__panel, .hero__switch {
-    grid-column: auto; grid-row: auto; align-self: start; justify-self: start;
-  }
-  .hero__switch { order: 1; text-align: left; }
-  .hero__panel { order: 2; max-width: none; margin-top: 0; }
-  .perfilsw__lead { margin-top: 0; }
+  /* Una sola columna: el panel dejaba de tener columna 2 y se desbordaba */
+  .hero__in { row-gap: 1.5rem; }
+  .hero__txt, .hero__panel { grid-column: auto; justify-self: stretch; }
+  .hero__panel { max-width: none; }
 }
 
 /* ── Panel de credibilidad del hero ─────────────────────── */
@@ -609,7 +621,7 @@ a:hover { color: var(--accent); }
   background: rgba(255,255,255,.045);
   backdrop-filter: blur(2px);
   text-align: left;
-  max-width: 20rem;
+  max-width: 21rem;
 }
 .hero__panel dt {
   font-size: .6875rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
@@ -794,11 +806,23 @@ a:hover { color: var(--accent); }
   @keyframes malla { to { transform: translate3d(-18px, -12px, 0); } }
 }
 
-/* El retrato flota sobre la malla, con un halo propio detrás */
-.hero__foto { position: relative; }
-.hero__foto::before {
-  content: ""; position: absolute; z-index: -1;
-  inset: -18%;
-  background: radial-gradient(circle at 50% 45%, rgba(70,190,220,.13), transparent 58%);
-  filter: blur(16px);
+
+/* ── El rostro, como fondo del hero ──────────────────────────
+   Muy oscurecido y desaturado: es presencia, no retrato. Se apaga
+   antes de llegar a la columna de texto. */
+.hero__rostro {
+  position: absolute; inset: 0; z-index: -2; overflow: hidden;
+  pointer-events: none;
+}
+.hero__rostro img {
+  position: absolute; right: 0; top: 0;
+  width: min(66%, 1000px); height: 100%;
+  object-fit: cover; object-position: 58% 34%;
+  opacity: .72;
+}
+@media (max-width: 900px) {
+  .hero__rostro img {
+    width: 100%; object-position: 62% 24%;
+    opacity: .38;
+  }
 }
