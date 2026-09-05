@@ -7,12 +7,13 @@
 <meta name="description" content="Diseñador de interfaz con doce años de trayectoria: sistemas de diseño, flujos de e-commerce y fintech, identidad de marca y motion. Diseño en Figma y llevo la interfaz a producción.">
 <meta name="author" content="Agustín Campos">
 <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="../fonts/spacegrotesk-700-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/spacegrotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../css/style.css">
-<link rel="alternate" hreflang="es" href="./">
-<link rel="alternate" hreflang="en" href="../en/diseno/">
-<link rel="alternate" hreflang="x-default" href="./">
+<link rel="canonical" href="https://aguscamps.github.io/portfolio/diseno/">
+<link rel="alternate" hreflang="es" href="https://aguscamps.github.io/portfolio/diseno/">
+<link rel="alternate" hreflang="en" href="https://aguscamps.github.io/portfolio/en/diseno/">
+<link rel="alternate" hreflang="x-default" href="https://aguscamps.github.io/portfolio/diseno/">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Agustín Campos — Diseñador UI/UX">
@@ -25,8 +26,8 @@
 
 <header class="topbar">
   <div class="wrap topbar__in">
-    <a class="brand" href="#inicio">
-      <img src="../img/foto.webp" width="512" height="512" alt="">
+    <a class="brand" href="#inicio" aria-label="Agustín Campos — volver al inicio">
+      <img src="../img/foto-64.webp" width="64" height="64" alt="">
       <span>Agustín&nbsp;Campos</span>
     </a>
     <button class="navtoggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menú">
@@ -34,17 +35,39 @@
       <span class="navtoggle__txt">Menú</span>
     </button>
     <nav id="nav" class="nav" aria-label="Principal">
+      <div class="nav__cab">
+        <p class="nav__kicker">Navegación</p>
+        <button class="nav__cerrar" type="button" aria-label="Cerrar el menú">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor"
+                  stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
       <ul>
-        <li><a href="#casos">Casos</a></li>
-        <li><a href="#proceso">Cómo trabajo</a></li>
-        <li><a href="#herramientas">Herramientas</a></li>
-        <li><a href="#trayectoria">Trayectoria</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#casos"><i aria-hidden="true">01</i>Casos</a></li>
+        <li><a href="#proceso"><i aria-hidden="true">02</i>Cómo trabajo</a></li>
+        <li><a href="#herramientas"><i aria-hidden="true">03</i>Herramientas</a></li>
+        <li><a href="#trayectoria"><i aria-hidden="true">04</i>Trayectoria</a></li>
+        <li><a href="#contacto"><i aria-hidden="true">05</i>Contacto</a></li>
       </ul>
+      <nav class="perfilsw" aria-label="Elegí el perfil">
+        <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg><span class="perfilsw__t">Frontend</span></a>
+        <span aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5zM2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg><span class="perfilsw__t">Diseño UX/UI</span></span>
+      </nav>
+      <div class="nav__pie">
+        <p class="nav__lugar">Buenos Aires, Argentina · UTC−3</p>
+        <p class="nav__links">
+          <a href="../cv/CV-Agustin-Campos-Diseno-ES.pdf" target="_blank" rel="noopener">Ver el CV</a>
+          <a href="https://linkedin.com/in/aguscamps" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+      </div>
     </nav>
-    <p class="lang">
-      <span aria-current="true">ES</span><span class="lang__sep" aria-hidden="true">/</span><a href="../en/diseno/index.html" hreflang="en" lang="en">EN</a>
-    </p>
+    <a class="lang" href="../en/diseno/index.html" hreflang="en"
+       lang="en" aria-label="ES / EN · Switch to English">
+      <span class="lang__actual" aria-hidden="true">ES</span>
+      <span class="lang__otro" aria-hidden="true">EN</span>
+    </a>
   </div>
 </header>
 
@@ -52,6 +75,14 @@
 
   <!-- ─────────────────────────────  HERO  ───────────────────────────── -->
   <section class="hero" id="inicio">
+    <div class="hero__rostro" aria-hidden="true">
+      <picture>
+        <source media="(max-width: 900px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        <img src="../img/hero-fondo.webp" width="1500" height="1250" fetchpriority="high"
+             srcset="../img/hero-fondo-900.webp 900w, ../img/hero-fondo.webp 1500w"
+             sizes="72vw" alt="">
+      </picture>
+    </div>
     <div class="wrap hero__in">
       <div class="hero__txt">
       <p class="hero__kicker">Agustín Carlos Campos Bobbiesi</p>
@@ -68,9 +99,9 @@
         del detalle.
       </p>
       <ul class="hero__facts">
-        <li><b>12</b><span>años diseñando</span></li>
-        <li><b>+20</b><span>interfaces diseñadas e implementadas</span></li>
-        <li><b>6</b><span>países</span></li>
+        <li><b>12</b><span>años en diseño digital</span></li>
+        <li><b>+20</b><span>interfaces implementadas</span></li>
+        <li><b>6</b><span>países de Latinoamérica</span></li>
       </ul>
       <p class="hero__cta">
         <a class="btn btn--primary" href="#casos">Ver los casos</a>
@@ -81,23 +112,14 @@
         <span>· Adobe Certified Expert en Adobe Commerce, vigente hasta marzo de 2028</span>
       </p>
       </div>
-      <div class="hero__foto">
-        <img src="../img/foto.webp" width="512" height="512"
-             alt="Retrato de Agustín Campos.">
-      </div>
-      <div class="hero__switch">
-        <p class="perfilsw__lead">Dos perfiles, una misma trayectoria</p>
-        <nav class="perfilsw" aria-label="Elegí el perfil">
-          <a href="../">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
-            Frontend
-          </a>
-          <span aria-current="page">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5zM2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
-            Diseño UX/UI
-          </span>
-        </nav>
-      </div>
+      <dl class="hero__panel">
+        <dt>Especialidad</dt>
+        <dd>Diseño de interfaz de e-commerce sobre Magento&nbsp;2 / Adobe Commerce</dd>
+        <dt>Alcance</dt>
+        <dd>Del sistema de componentes en Figma a la implementación</dd>
+        <dt>Modalidad</dt>
+        <dd>Buenos Aires (UTC−3) · remoto o presencial · jornada completa</dd>
+      </dl>
     </div>
   </section>
 
@@ -111,15 +133,19 @@
       </p>
 
       <!-- CASO 1 -->
+        <p class="casos__desliza">Deslizá para recorrer los 4 casos</p>
+      <div class="casos__pista">
       <article class="case" id="caso-sparta">
         <div class="case__media">
           <figure>
-            <img src="../img/newbalance-home.webp" width="1600" height="1000" loading="lazy"
+            <img src="../img/newbalance-home.webp"
+                 srcset="../img/newbalance-home-800.webp 800w, ../img/newbalance-home.webp 1600w" sizes="(max-width: 900px) 92vw, 640px" width="1600" height="1000" loading="lazy"
                  alt="Home de newbalance.cl, tienda oficial de New Balance en Chile: banner de running y grilla de zapatillas destacadas.">
             <figcaption>newbalance.cl — home</figcaption>
           </figure>
           <figure>
-            <img src="../img/sparta-home.webp" width="1600" height="1000" loading="lazy"
+            <img src="../img/sparta-home.webp"
+                 srcset="../img/sparta-home-800.webp 800w, ../img/sparta-home.webp 1600w" sizes="(max-width: 900px) 92vw, 640px" width="1600" height="1000" loading="lazy"
                  alt="Home de sparta.cl: navegación por deporte, banner de campaña del Mundial de Vóleibol y carrusel con las marcas del catálogo.">
             <figcaption>sparta.cl — home</figcaption>
           </figure>
@@ -128,7 +154,10 @@
           <p class="case__num" aria-hidden="true">01</p>
           <p class="case__meta">Improntus · Cliente Sparta, Chile</p>
           <h3>Cinco marcas, cinco identidades, un mismo sistema</h3>
+          <p class="case__resumen">UI kits como fuente única entre diseño y desarrollo: los componentes se definen una vez y las variantes se resuelven por marca, para cinco tiendas que se ven distintas.</p>
 
+
+          <div class="case__detalle">
           <dl class="facts">
             <dt>Contexto</dt>
             <dd>Sparta opera en Chile el retail deportivo de cinco marcas —Sparta, New Balance,
@@ -152,14 +181,18 @@
             <dd>Dos tiendas en producción con identidades claramente distintas y un sistema de
               componentes que sostiene a las cinco.</dd>
           </dl>
+          <p class="case__links">
+            <a href="https://www.newbalance.cl" target="_blank" rel="noopener">newbalance.cl</a>
+            <a href="https://www.sparta.cl" target="_blank" rel="noopener">sparta.cl</a>
+          </p>
+          </div>
 
           <ul class="tags">
             <li>Figma</li><li>UI kit</li><li>Sistema de componentes</li><li>Diseño de e-commerce</li>
             <li>Responsive</li><li>Multi-marca</li>
           </ul>
-          <p class="case__links">
-            <a href="https://www.newbalance.cl" target="_blank" rel="noopener">newbalance.cl</a>
-            <a href="https://www.sparta.cl" target="_blank" rel="noopener">sparta.cl</a>
+          <p class="case__acciones">
+            <button class="case__abrir" type="button">Ver el caso completo</button>
           </p>
         </div>
       </article>
@@ -178,7 +211,10 @@
           <p class="case__num" aria-hidden="true">02</p>
           <p class="case__meta">Pago TIC · Fintech de medios de pago · 2020–2021</p>
           <h3>El sistema de diseño de una fintech</h3>
+          <p class="case__resumen">El sistema de diseño de la empresa y todo lo que se apoyó en él: checkout, backoffice, landings, mailings y las piezas de la campaña del cambio de nombre.</p>
 
+
+          <div class="case__detalle">
           <dl class="facts">
             <dt>Contexto</dt>
             <dd><b>PayperTIC</b> es una plataforma de medios de pago. Estaba en el equipo de diseño,
@@ -203,11 +239,15 @@
               ellas la transición de un logotipo al otro animada en After Effects, que es el video
               de acá al lado.</dd>
           </dl>
+          </div>
 
           <ul class="tags">
             <li>Sistema de diseño</li><li>Diseño UI</li><li>Checkout</li><li>Fintech</li>
             <li>Motion graphics</li><li>After Effects</li><li>Rebranding</li>
           </ul>
+          <p class="case__acciones">
+            <button class="case__abrir" type="button">Ver el caso completo</button>
+          </p>
         </div>
       </article>
 
@@ -215,12 +255,14 @@
       <article class="case" id="caso-unicef">
         <div class="case__media">
           <figure>
-            <img src="../img/unicef.webp" width="1600" height="1000" loading="lazy"
+            <img src="../img/unicef.webp"
+                 srcset="../img/unicef-800.webp 800w, ../img/unicef.webp 1600w" sizes="(max-width: 900px) 92vw, 640px" width="1600" height="1000" loading="lazy"
                  alt="Campaña Ponete en sus zapatas de UNICEF en el celular: pantalla de donación con montos y pago con tarjeta.">
             <figcaption>UNICEF — donación desde el celular</figcaption>
           </figure>
           <figure>
-            <img src="../img/unicef-pieza.webp" width="1600" height="1000" loading="lazy"
+            <img src="../img/unicef-pieza.webp"
+                 srcset="../img/unicef-pieza-800.webp 800w, ../img/unicef-pieza.webp 1600w" sizes="(max-width: 900px) 92vw, 640px" width="1600" height="1000" loading="lazy"
                  alt="Libro de actividades de UNICEF, con juegos y laberintos ilustrados, abierto y en portada.">
             <figcaption>UNICEF — libro de actividades para donantes</figcaption>
           </figure>
@@ -229,7 +271,10 @@
           <p class="case__num" aria-hidden="true">03</p>
           <p class="case__meta">Inmental Interactive · UNICEF · 2016–2020</p>
           <h3>Donar desde el celular, sin fricción</h3>
+          <p class="case__resumen">Un flujo de donación mobile first de pocos pasos, con montos preestablecidos y la donación recurrente ofrecida dentro del mismo paso, no después.</p>
 
+
+          <div class="case__detalle">
           <dl class="facts">
             <dt>Contexto</dt>
             <dd>Sitio de recaudación de fondos y concientización de UNICEF. La mayor parte del
@@ -251,11 +296,15 @@
             <dd>Un recorrido de donación de pocos pasos, legible en pantalla chica, con la
               recurrencia integrada al flujo.</dd>
           </dl>
+          </div>
 
           <ul class="tags">
             <li>Mobile first</li><li>Diseño de flujo</li><li>UI</li><li>Diseño editorial</li>
             <li>Campañas</li>
           </ul>
+          <p class="case__acciones">
+            <button class="case__abrir" type="button">Ver el caso completo</button>
+          </p>
         </div>
       </article>
 
@@ -263,17 +312,20 @@
       <article class="case case--alt" id="caso-multishan">
         <div class="case__media case__media--mosaico">
           <figure>
-            <img src="../img/multishan-lobby.webp" width="1600" height="1000" loading="lazy"
+            <img src="../img/multishan-lobby.webp"
+                 srcset="../img/multishan-lobby-800.webp 800w, ../img/multishan-lobby.webp 1600w" sizes="(max-width: 900px) 92vw, 640px" width="1600" height="1000" loading="lazy"
                  alt="Lobby de la feria virtual con los accesos señalizados sobre el espacio: exhibición, actividades, auditorio, agenda, networking e información.">
             <figcaption>Multishan — lobby, con los accesos a cada sector</figcaption>
           </figure>
           <figure>
-            <img src="../img/multishan-pabellon.webp" width="1600" height="1000" loading="lazy"
+            <img src="../img/multishan-pabellon.webp"
+                 srcset="../img/multishan-pabellon-800.webp 800w, ../img/multishan-pabellon.webp 1600w" sizes="(max-width: 900px) 92vw, 640px" width="1600" height="1000" loading="lazy"
                  alt="Pabellón de la feria virtual: un pasillo con los stands de las marcas montados a ambos lados, bajo un techo de estructura metálica.">
             <figcaption>Multishan — pabellón de exposición</figcaption>
           </figure>
           <figure>
-            <img src="../img/multishan-stand.webp" width="1600" height="1000" loading="lazy"
+            <img src="../img/multishan-stand.webp"
+                 srcset="../img/multishan-stand-800.webp 800w, ../img/multishan-stand.webp 1600w" sizes="(max-width: 900px) 92vw, 640px" width="1600" height="1000" loading="lazy"
                  alt="Stand virtual de una marca de motores: los productos sobre tarimas y puntos de información y de vista 360 repartidos por el espacio.">
             <figcaption>Multishan — stand de marca, con los puntos interactivos</figcaption>
           </figure>
@@ -282,7 +334,10 @@
           <p class="case__num" aria-hidden="true">04</p>
           <p class="case__meta">Inmental Interactive · Multishan, España · 2020</p>
           <h3>Una feria de exposiciones sin feria</h3>
+          <p class="case__resumen">Salas recorribles con navegación espacial en lugar de menú, para conservar la lógica de caminar una feria que ya no se podía visitar.</p>
 
+
+          <div class="case__detalle">
           <dl class="facts">
             <dt>Contexto</dt>
             <dd>Multishan organizaba exposiciones presenciales en España. La pandemia las canceló
@@ -303,12 +358,17 @@
             <dd>Un reemplazo funcional del evento presencial durante el período en que no hubo
               alternativa.</dd>
           </dl>
+          </div>
 
           <ul class="tags">
             <li>Diseño de producto</li><li>Navegación espacial</li><li>3D</li><li>UI de kiosco</li>
           </ul>
+          <p class="case__acciones">
+            <button class="case__abrir" type="button">Ver el caso completo</button>
+          </p>
         </div>
       </article>
+      </div>
 
       <!-- OTROS -->
       <div class="otros">
@@ -317,11 +377,13 @@
           Doce años dan para más de cuatro proyectos. Esta es una selección del resto: identidad,
           gráfica, aplicaciones y 3D.
         </p>
+        <p class="otros__desliza">Deslizá para ver las siete piezas</p>
 
         <ul class="grid-otros">
           <li>
             <figure>
-              <img src="../img/otros-novartis.webp" width="900" height="900" loading="lazy"
+              <img src="../img/otros-novartis.webp"
+                 srcset="../img/otros-novartis-600.webp 600w, ../img/otros-novartis.webp 900w" sizes="(max-width: 720px) 78vw, (max-width: 900px) 44vw, 320px" width="900" height="900" loading="lazy"
                    alt="Dos celulares con las pantallas de dos aplicaciones: la agenda de tomas de la app de Novartis y el ingreso de la app Rukas.">
               <figcaption>
                 <b>Aplicaciones móviles</b>
@@ -332,7 +394,8 @@
           </li>
           <li>
             <figure>
-              <img src="../img/otros-herradura.webp" width="900" height="900" loading="lazy"
+              <img src="../img/otros-herradura.webp"
+                 srcset="../img/otros-herradura-600.webp 600w, ../img/otros-herradura.webp 900w" sizes="(max-width: 720px) 78vw, (max-width: 900px) 44vw, 320px" width="900" height="900" loading="lazy"
                    alt="Logotipo ilustrado de La Herradura: un panadero con gorro y una herradura con espigas de trigo.">
               <figcaption>
                 <b>La Herradura — identidad</b>
@@ -343,7 +406,8 @@
           </li>
           <li>
             <figure>
-              <img src="../img/otros-bimbo.webp" width="900" height="900" loading="lazy"
+              <img src="../img/otros-bimbo.webp"
+                 srcset="../img/otros-bimbo-600.webp 600w, ../img/otros-bimbo.webp 900w" sizes="(max-width: 720px) 78vw, (max-width: 900px) 44vw, 320px" width="900" height="900" loading="lazy"
                    alt="Landing de registro de la promoción Útiles para el Recreo de Bimbo, en notebook y celular.">
               <figcaption>
                 <b>Landings de promoción</b>
@@ -355,7 +419,8 @@
           </li>
           <li>
             <figure>
-              <img src="../img/otros-chevrolet.webp" width="900" height="900" loading="lazy"
+              <img src="../img/otros-chevrolet.webp"
+                 srcset="../img/otros-chevrolet-600.webp 600w, ../img/otros-chevrolet.webp 900w" sizes="(max-width: 720px) 78vw, (max-width: 900px) 44vw, 320px" width="900" height="900" loading="lazy"
                    alt="Dos avisos de la campaña Servicio 10K de Chevrolet, con promociones de mantenimiento y neumáticos.">
               <figcaption>
                 <b>Chevrolet — Servicio 10K</b>
@@ -366,7 +431,8 @@
           </li>
           <li>
             <figure>
-              <img src="../img/otros-3d.webp" width="900" height="900" loading="lazy"
+              <img src="../img/otros-3d.webp"
+                 srcset="../img/otros-3d-600.webp 600w, ../img/otros-3d.webp 900w" sizes="(max-width: 720px) 78vw, (max-width: 900px) 44vw, 320px" width="900" height="900" loading="lazy"
                    alt="Render 3D de un exhibidor de punto de venta de adidas Snowboarding: base de madera, tapa negra y panel vertical con la marca.">
               <figcaption>
                 <b>Exhibidores y stands en 3D</b>
@@ -377,7 +443,8 @@
           </li>
           <li>
             <figure>
-              <img src="../img/otros-sable.webp" width="900" height="900" loading="lazy"
+              <img src="../img/otros-sable.webp"
+                 srcset="../img/otros-sable-600.webp 600w, ../img/otros-sable.webp 900w" sizes="(max-width: 720px) 78vw, (max-width: 900px) 44vw, 320px" width="900" height="900" loading="lazy"
                    alt="A la izquierda, el modelo 3D del mango de sable láser con el aro del control integrado; a la derecha, la pieza ya impresa y armada sobre un escritorio.">
               <figcaption>
                 <b>Sable láser impreso en 3D</b>
@@ -389,7 +456,8 @@
           </li>
           <li>
             <figure>
-              <img src="../img/otros-greenzap.webp" width="900" height="900" loading="lazy"
+              <img src="../img/otros-greenzap.webp"
+                 srcset="../img/otros-greenzap-600.webp 600w, ../img/otros-greenzap.webp 900w" sizes="(max-width: 720px) 78vw, (max-width: 900px) 44vw, 320px" width="900" height="900" loading="lazy"
                    alt="Folletos impresos de un centro de estética, desplegados sobre una mesa.">
               <figcaption>
                 <b>Folletería y piezas gráficas</b>
@@ -547,13 +615,47 @@
   </div>
 </footer>
 
-<a class="arriba" href="#inicio" aria-label="Volver arriba">
-  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
-    <path d="M12 19V5M12 5l-7 7M12 5l7 7" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-</a>
+<!-- Panel de caso: el contenido lo mueve aquí js/main.js al abrir -->
+<dialog class="modal" id="modal-caso" aria-labelledby="modal-titulo">
+  <article class="modal__caja">
+    <header class="modal__head">
+      <div class="modal__id">
+        <p class="modal__meta" id="modal-meta"></p>
+        <h2 class="modal__titulo" id="modal-titulo"></h2>
+      </div>
+      <button class="modal__cerrar" type="button" aria-label="Cerrar el caso">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+          <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </header>
+    <div class="modal__cuerpo" id="modal-cuerpo"></div>
+  </article>
+</dialog>
+
+<div class="burbujas">
+  <a class="burbuja burbuja--wa" href="https://wa.me/5491135191425"
+     target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" width="23" height="23" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+    </svg>
+  </a>
+  <a class="burbuja burbuja--top" href="#inicio" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+      <path d="M12 19V5M12 5l-7 7M12 5l7 7" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+</div>
 
 <script src="../js/main.js" defer></script>
+
+<!-- Analítica sin cookies. Para activarla: crear la cuenta gratuita en https://www.goatcounter.com,
+     reemplazar TU-CODIGO por el código del sitio y descomentar. No usa cookies, así que no
+     requiere banner de consentimiento.
+<script data-goatcounter="https://TU-CODIGO.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+-->
 </body>
 </html>
