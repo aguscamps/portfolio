@@ -51,6 +51,10 @@
         <li><a href="#trayectoria"><i aria-hidden="true">04</i>Trayectoria</a></li>
         <li><a href="#contacto"><i aria-hidden="true">05</i>Contacto</a></li>
       </ul>
+      <nav class="perfilsw" aria-label="Elegí el perfil">
+        <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg><span class="perfilsw__t">Frontend</span></a>
+        <span aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5zM2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg><span class="perfilsw__t">Diseño UX/UI</span></span>
+      </nav>
       <div class="nav__pie">
         <p class="nav__lugar">Buenos Aires, Argentina · UTC−3</p>
         <p class="nav__links">
@@ -58,10 +62,6 @@
           <a href="https://linkedin.com/in/aguscamps" target="_blank" rel="noopener">LinkedIn</a>
         </p>
       </div>
-    </nav>
-    <nav class="perfilsw" aria-label="Elegí el perfil">
-      <a href="../index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg><span class="perfilsw__t">Frontend</span></a>
-      <span aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5zM2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg><span class="perfilsw__t">Diseño UX/UI</span></span>
     </nav>
     <a class="lang" href="../en/diseno/index.html" hreflang="en"
        lang="en" aria-label="ES / EN · Switch to English">
@@ -76,9 +76,12 @@
   <!-- ─────────────────────────────  HERO  ───────────────────────────── -->
   <section class="hero" id="inicio">
     <div class="hero__rostro" aria-hidden="true">
-      <img src="../img/hero-fondo.webp" width="1500" height="1250" fetchpriority="high"
-           srcset="../img/hero-fondo-900.webp 900w, ../img/hero-fondo.webp 1500w"
-           sizes="(max-width: 900px) 100vw, 72vw" alt="">
+      <picture>
+        <source media="(max-width: 900px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        <img src="../img/hero-fondo.webp" width="1500" height="1250" fetchpriority="high"
+             srcset="../img/hero-fondo-900.webp 900w, ../img/hero-fondo.webp 1500w"
+             sizes="72vw" alt="">
+      </picture>
     </div>
     <div class="wrap hero__in">
       <div class="hero__txt">

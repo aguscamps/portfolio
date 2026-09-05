@@ -89,7 +89,9 @@ a:hover { color: var(--accent); }
   font-size: 1.0625rem; letter-spacing: -.035em;
 }
 .brand img { width: 32px; height: 32px; border-radius: 50%; flex: 0 0 auto; }
-.nav { margin-left: auto; }
+/* El selector de perfil vive dentro del menú: en la barra es un hermano más
+   de la lista de secciones, y al plegarse el menú entra solo en el panel. */
+.nav { margin-left: auto; display: flex; align-items: center; }
 .nav__cab, .nav__pie { display: none; }
 .nav ul { display: flex; gap: 1.75rem; list-style: none; margin: 0; padding: 0; }
 .nav a {
@@ -125,19 +127,7 @@ a:hover { color: var(--accent); }
   .nav ul { gap: 1.2rem; }
   .nav i { display: none; }
 }
-/* Con el menú ya plegado, el selector de perfil queda en iconos */
-@media (max-width: 860px) {
-  /* Oculta a la vista pero presente para lectores de pantalla: si se usa
-     display:none el enlace se queda sin nombre accesible. */
-  .perfilsw__t {
-    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-    overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
-  }
-  .perfilsw > a, .perfilsw > span { padding: .45rem .6rem; }
-  .perfilsw svg { width: 15px; height: 15px; }
-}
 @media (max-width: 430px) {
-  .perfilsw { margin-left: auto; }
   .lang { margin-left: .6rem; }
 }
 
@@ -610,7 +600,20 @@ a:hover { color: var(--accent); }
   }
   .nav__links a::after { content: " ↗"; font-weight: 400; }
   .topbar__in { position: relative; }
-  .perfilsw { margin-left: auto; }
+
+  /* Dentro del panel el selector pasa a ocupar el ancho, con las dos
+     opciones del mismo tamaño: es una decisión, no un adorno de la barra. */
+  .perfilsw { display: flex; width: 100%; margin: 1.25rem 0 0; }
+  .perfilsw > a, .perfilsw > span {
+    flex: 1; justify-content: center;
+    padding: .8rem 1rem; font-size: .9375rem;
+  }
+  /* Gana a la tipografía grande de los enlaces del panel */
+  .nav .perfilsw a {
+    font-family: var(--display); font-size: .9375rem; font-weight: 500;
+    letter-spacing: -.01em; line-height: 1; white-space: nowrap;
+  }
+  .perfilsw svg { width: 15px; height: 15px; }
 }
 
 @media (max-width: 720px) {
@@ -894,11 +897,11 @@ a:hover { color: var(--accent); }
   object-fit: cover; object-position: 58% 34%;
   opacity: .72;
 }
+/* En mobile no va: el hero mide unos 1400 px de alto y cualquier encuadre
+   termina siendo un primer plano de un pedazo de cara. Quedan el degradado,
+   el grano y la malla. El `<picture>` del hero evita además la descarga. */
 @media (max-width: 900px) {
-  .hero__rostro img {
-    width: 100%; object-position: 62% 24%;
-    opacity: .38;
-  }
+  .hero__rostro { display: none; }
 }
 
 /* ── Casos: carrusel en mobile ───────────────────────────────
