@@ -365,7 +365,7 @@ a:hover { color: var(--accent); }
 .case > .case__media figcaption { display: none; }
 .case > .case__media img,
 .case > .case__media video {
-  width: 100%; height: auto; max-height: 22rem; object-fit: contain;
+  width: 100%; height: auto; max-height: 30rem; object-fit: contain;
   border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,.18);
 }
 .case > .case__media video { background: #000; }
