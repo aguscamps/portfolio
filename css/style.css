@@ -137,7 +137,7 @@ a:hover { color: var(--accent); }
 .lang {
   position: relative; flex: none;
   display: grid; place-items: center;
-  width: 44px; height: 44px; margin-left: 1.1rem;
+  width: 44px; height: 44px; margin-left: 1.25rem;
   border-radius: 50%; text-decoration: none;
   background: color-mix(in srgb, var(--bg-soft) 70%, transparent);
   box-shadow: inset 0 0 0 1px var(--line);
@@ -171,7 +171,7 @@ a:hover { color: var(--accent); }
 /* ── Selector de perfil, ahora en la barra ───────────────────── */
 .perfilsw {
   display: inline-flex; align-items: stretch; gap: .15rem;
-  margin: 0 0 0 1.25rem; padding: .2rem; flex: none;
+  margin: 0 0 0 2.25rem; padding: .2rem; flex: none;
   border: 1px solid var(--line); border-radius: 999px;
   background: var(--bg-soft);
 }
