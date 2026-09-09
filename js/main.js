@@ -229,6 +229,18 @@
         boton.setAttribute('aria-label', prefijo + titulo.textContent.trim());
       }
       boton.addEventListener('click', function () { abrir(caso, boton); });
+
+      /* La imagen de la tarjeta también abre el caso: es lo primero que la
+         gente intenta. El botón sigue siendo el camino accesible por teclado,
+         así que esto es un atajo redundante, no la única puerta. */
+      var media = caso.querySelector('.case__media');
+      if (media) {
+        media.addEventListener('click', function (e) {
+          if (modal.open) return;             /* ya abierto: no reabrir */
+          if (e.target.closest('a')) return;  /* los enlaces al sitio mandan */
+          abrir(caso, boton);
+        });
+      }
     });
 
     cerrar.addEventListener('click', cerrarPanel);
