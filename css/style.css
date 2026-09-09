@@ -365,9 +365,14 @@ a:hover { color: var(--accent); }
 .case > .case__media figcaption { display: none; }
 .case > .case__media img,
 .case > .case__media video {
-  width: 100%; height: auto; max-height: 44rem; object-fit: contain;
+  width: 100%; height: auto; max-height: 44rem;
   border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,.18);
 }
+/* En la tarjeta la imagen va cuadrada y recortada: llena el panel y todas las
+   tarjetas quedan con la misma silueta. La imagen completa se ve en el modal.
+   El video queda fuera: recortarlo a cuadrado le come la mitad del encuadre. */
+.case > .case__media img { aspect-ratio: 1 / 1; object-fit: cover; }
+.case > .case__media video { object-fit: contain; }
 .case > .case__media video { background: #000; }
 
 .case__body { padding: clamp(1.5rem, 3vw, 2.25rem); display: flex; flex-direction: column; }
