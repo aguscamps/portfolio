@@ -365,7 +365,7 @@ a:hover { color: var(--accent); }
 .case > .case__media figcaption { display: none; }
 .case > .case__media img,
 .case > .case__media video {
-  width: 100%; height: auto; max-height: 30rem; object-fit: contain;
+  width: 100%; height: auto; max-height: 44rem; object-fit: contain;
   border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,.18);
 }
 .case > .case__media video { background: #000; }
@@ -800,7 +800,7 @@ a:hover { color: var(--accent); }
 }
 .modal__cuerpo .case__media img,
 .modal__cuerpo .case__media video {
-  width: 100%; height: auto; max-height: 46vh; object-fit: contain;
+  width: 100%; height: auto; max-height: 74vh; object-fit: contain;
   border-radius: var(--r); border: 1px solid var(--line); background: var(--bg-soft);
 }
 .modal__cuerpo .case__media video { background: #000; }
