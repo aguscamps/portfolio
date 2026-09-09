@@ -128,12 +128,12 @@
     <div class="wrap">
       <h2 class="sect__h">Casos</h2>
       <p class="sect__intro">
-        Cuatro proyectos donde el diseño resolvió un problema concreto, ordenados del más reciente
+        Cinco proyectos donde el diseño resolvió un problema concreto, ordenados del más reciente
         al más antiguo. En casi todos diseñé la interfaz y después la implementé.
       </p>
 
       <!-- CASO 1 -->
-        <p class="casos__desliza">Deslizá para recorrer los 4 casos</p>
+        <p class="casos__desliza">Deslizá para recorrer los 5 casos</p>
       <div class="casos__pista">
       <article class="case" id="caso-sparta">
         <div class="case__media">
@@ -226,7 +226,66 @@
       </article>
 
       <!-- CASO 2 -->
-      <article class="case case--alt" id="caso-pagotic">
+      <article class="case case--alt" id="caso-supercarnes">
+        <div class="case__media">
+          <figure>
+            <img src="../img/sc-mosaico.webp"
+                 srcset="../img/sc-mosaico-800.webp 800w, ../img/sc-mosaico.webp 1600w" sizes="(max-width: 900px) 92vw, 1200px" width="1600" height="1000" loading="lazy"
+                 alt="Mosaico del proyecto Super Carnes. En el centro, el archivo de Figma con el listado y sus capas de ficha por unidad y por kilo, y debajo la ficha en producción con el selector de unidad, kilogramo y libra y el total recalculado. Alrededor, el listado de carnes con precio doble y el home.">
+            <figcaption>El archivo de Figma y el sitio en producción: la ficha resolvió el selector en tres unidades con el total a la vista.</figcaption>
+          </figure>
+          <figure>
+            <img src="../img/sc-figma.webp"
+                 srcset="../img/sc-figma-800.webp 800w, ../img/sc-figma.webp 1487w" sizes="(max-width: 900px) 92vw, 1200px" width="1487" height="812" loading="lazy"
+                 alt="El archivo de Super Carnes abierto en Figma: en las capas se ven las versiones de ficha por unidad y por kilo con sus estados en oferta, el carrito, el checkout en dos pasos y las dos versiones de home. En el lienzo, el listado con filtros y la grilla de productos.">
+            <figcaption>El archivo en Figma: la unidad de venta como variante del producto, no como caso especial.</figcaption>
+          </figure>
+          <figure>
+            <a href="https://supercarnes.com" target="_blank" rel="noopener">
+              <img src="../img/sc-home.webp"
+                   srcset="../img/sc-home-800.webp 800w, ../img/sc-home.webp 1487w" sizes="(max-width: 900px) 92vw, 1200px" width="1487" height="812" loading="lazy"
+                   alt="Home de supercarnes.com: buscador, accesos circulares por categoría, banner de campaña y carrusel de ofertas.">
+            </a>
+            <figcaption>supercarnes.com — abrir el sitio</figcaption>
+          </figure>
+        </div>
+        <div class="case__body">
+          <p class="case__num" aria-hidden="true">02</p>
+          <p class="case__meta">Improntus · Cliente Super Carnes, Panamá</p>
+          <h3>Comprar por peso o por unidad, desde la tarjeta</h3>
+          <p class="case__resumen">Un catálogo donde la carne se vende por peso y la despensa por unidad, con compra rápida desde la tarjeta y el total a la vista antes de agregar.</p>
+
+          <div class="case__detalle">
+          <dl class="facts">
+            <dt>Contexto</dt>
+            <dd>Super Carnes es una cadena de supermercados panameña con foco en carnicería. Pidieron un sitio de compra ágil y un diseño contemporáneo, que no se leyera como un e-commerce tradicional.</dd>
+
+            <dt>El problema</dt>
+            <dd>Una tarjeta de producto asume un precio fijo por unidad, pero acá el mismo catálogo mezcla cortes que se venden por kilo con productos de despensa que se venden por unidad. El cliente necesita elegir en qué unidad compra, ver a cuánto equivale la otra y saber cuánto va a pagar por esa cantidad, todo antes de agregar al carrito y sin entrar a la ficha.</dd>
+
+            <dt>Qué hice</dt>
+            <dd>Diseñé la interfaz completa del rediseño: home en dos versiones, listado con compra rápida desde la tarjeta, ficha de producto, carrito, checkout en dos pasos, cuenta, listas y autenticación, sobre una librería de componentes con estilos de texto y color propios. La decisión de fondo fue tratar la unidad de venta como una variante del producto y no como un caso especial: la ficha se diseñó en versiones por unidad, por kilo y por las dos, cada una con su estado en oferta.</dd>
+
+            <dt>Resultado</dt>
+            <dd>Estuve solo en la etapa de diseño: de ahí seguí con New Balance, así que no maqueté este sitio ni seguí su implementación. Hoy está publicado y la idea llegó a producción: la tarjeta del listado muestra el precio por unidad y por kilo con su equivalencia y un botón para agregar sin entrar, y la ficha resolvió el selector en tres unidades —unidad, kilogramo y libra— con el total recalculándose y el aviso de que puede variar según el peso final.</dd>
+          </dl>
+          <p class="case__links">
+            <a href="https://supercarnes.com" target="_blank" rel="noopener">supercarnes.com</a>
+          </p>
+          </div>
+
+          <ul class="tags">
+            <li>Figma</li><li>Diseño UI</li><li>Diseño de e-commerce</li>
+            <li>Venta por peso</li><li>Compra rápida</li><li>Sistema de componentes</li>
+          </ul>
+          <p class="case__acciones">
+            <button class="case__abrir" type="button">Ver el caso completo</button>
+          </p>
+        </div>
+      </article>
+
+      <!-- CASO 3 -->
+      <article class="case" id="caso-pagotic">
         <div class="case__media">
           <figure>
             <video src="../video/pagotic-rebrand.mp4" width="1280" height="720"
@@ -236,7 +295,7 @@
           </figure>
         </div>
         <div class="case__body">
-          <p class="case__num" aria-hidden="true">02</p>
+          <p class="case__num" aria-hidden="true">03</p>
           <p class="case__meta">Pago TIC · Fintech de medios de pago · 2020–2021</p>
           <h3>El sistema de diseño de una fintech</h3>
           <p class="case__resumen">El sistema de diseño de la empresa y todo lo que se apoyó en él: checkout, backoffice, landings, mailings y las piezas de la campaña del cambio de nombre.</p>
@@ -279,8 +338,8 @@
         </div>
       </article>
 
-      <!-- CASO 3 -->
-      <article class="case" id="caso-unicef">
+      <!-- CASO 4 -->
+      <article class="case case--alt" id="caso-unicef">
         <div class="case__media">
           <figure>
             <img src="../img/unicef.webp"
@@ -296,7 +355,7 @@
           </figure>
         </div>
         <div class="case__body">
-          <p class="case__num" aria-hidden="true">03</p>
+          <p class="case__num" aria-hidden="true">04</p>
           <p class="case__meta">Inmental Interactive · UNICEF · 2016–2020</p>
           <h3>Donar desde el celular, sin fricción</h3>
           <p class="case__resumen">Un flujo de donación mobile first de pocos pasos, con montos preestablecidos y la donación recurrente ofrecida dentro del mismo paso, no después.</p>
@@ -336,8 +395,8 @@
         </div>
       </article>
 
-      <!-- CASO 4 -->
-      <article class="case case--alt" id="caso-multishan">
+      <!-- CASO 5 -->
+      <article class="case" id="caso-multishan">
         <div class="case__media case__media--mosaico">
           <figure>
             <img src="../img/multishan-lobby.webp"
@@ -359,7 +418,7 @@
           </figure>
         </div>
         <div class="case__body">
-          <p class="case__num" aria-hidden="true">04</p>
+          <p class="case__num" aria-hidden="true">05</p>
           <p class="case__meta">Inmental Interactive · Multishan, España · 2020</p>
           <h3>Una feria de exposiciones sin feria</h3>
           <p class="case__resumen">Salas recorribles con navegación espacial en lugar de menú, para conservar la lógica de caminar una feria que ya no se podía visitar.</p>

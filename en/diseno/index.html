@@ -128,7 +128,7 @@
     <div class="wrap">
       <h2 class="sect__h">Cases</h2>
       <p class="sect__intro">
-        Four projects where design solved a concrete problem, ordered from most recent to oldest.
+        Five projects where design solved a concrete problem, ordered from most recent to oldest.
         In almost all of them I designed the interface and then built it.
       </p>
 
@@ -226,7 +226,66 @@
       </article>
 
       <!-- CASE 2 -->
-      <article class="case case--alt" id="case-pagotic">
+      <article class="case case--alt" id="case-supercarnes">
+        <div class="case__media">
+          <figure>
+            <img src="../../img/sc-mosaico.webp"
+                 srcset="../../img/sc-mosaico-800.webp 800w, ../../img/sc-mosaico.webp 1600w" sizes="(max-width: 900px) 92vw, 1200px" width="1600" height="1000" loading="lazy"
+                 alt="Mosaic of the Super Carnes project. At the centre, the Figma file with the listing and its by-unit and by-kilo product page layers, and below it the live product page with its unit, kilogram and pound selector and the recalculated total. Around them, the meat listing with dual pricing and the home page.">
+            <figcaption>The Figma file and the live site: the product page solved the selector in three units with the total in view.</figcaption>
+          </figure>
+          <figure>
+            <img src="../../img/sc-figma.webp"
+                 srcset="../../img/sc-figma-800.webp 800w, ../../img/sc-figma.webp 1487w" sizes="(max-width: 900px) 92vw, 1200px" width="1487" height="812" loading="lazy"
+                 alt="The Super Carnes file open in Figma: the layers show the by-unit and by-kilo product page versions with their on-offer states, the cart, the two-step checkout and the two home versions. On the canvas, the listing with filters and the product grid.">
+            <figcaption>The Figma file: the selling unit as a product variant, not a special case.</figcaption>
+          </figure>
+          <figure>
+            <a href="https://supercarnes.com" target="_blank" rel="noopener">
+              <img src="../../img/sc-home.webp"
+                   srcset="../../img/sc-home-800.webp 800w, ../../img/sc-home.webp 1487w" sizes="(max-width: 900px) 92vw, 1200px" width="1487" height="812" loading="lazy"
+                   alt="supercarnes.com home page: search, circular category entry points, a campaign banner and an offers carousel.">
+            </a>
+            <figcaption>supercarnes.com — open the site</figcaption>
+          </figure>
+        </div>
+        <div class="case__body">
+          <p class="case__num" aria-hidden="true">02</p>
+          <p class="case__meta">Improntus · Client Super Carnes, Panama</p>
+          <h3>Buying by weight or by unit, straight from the card</h3>
+          <p class="case__resumen">A catalogue where meat sells by weight and groceries by the unit, with quick add from the card and the total in view before adding.</p>
+
+          <div class="case__detalle">
+          <dl class="facts">
+            <dt>Context</dt>
+            <dd>Super Carnes is a Panamanian supermarket chain built around its butcher counter. They asked for a fast shopping experience and a contemporary design that would not read like a traditional e-commerce site.</dd>
+
+            <dt>The problem</dt>
+            <dd>A product card assumes a fixed price per unit, but here the same catalogue mixes cuts sold by the kilo with grocery items sold by the unit. The shopper needs to choose which unit to buy in, see what the other one comes to, and know what that quantity will cost — all before adding to the cart and without opening the product page.</dd>
+
+            <dt>What I did</dt>
+            <dd>I designed the full interface for the redesign: two home versions, a listing with quick add from the card, the product page, cart, two-step checkout, account, lists and sign-in, on top of a component library with its own text and colour styles. The underlying decision was to treat the selling unit as a product variant rather than a special case: the product page was designed in by-unit, by-kilo and combined versions, each with its on-offer state.</dd>
+
+            <dt>Outcome</dt>
+            <dd>I was only in the design stage: from there I moved on to New Balance, so I did not build this site or follow its implementation. It is live today and the idea did reach production: the listing card shows the price per unit and per kilo with the equivalence and a button to add without opening the product, and the product page solved the selector in three units — unit, kilogram and pound — with the total recalculating and a note that it may vary with the final weight.</dd>
+          </dl>
+          <p class="case__links">
+            <a href="https://supercarnes.com" target="_blank" rel="noopener">supercarnes.com</a>
+          </p>
+          </div>
+
+          <ul class="tags">
+            <li>Figma</li><li>UI design</li><li>E-commerce design</li>
+            <li>Sold by weight</li><li>Quick add</li><li>Component system</li>
+          </ul>
+          <p class="case__acciones">
+            <button class="case__abrir" type="button">View the full case</button>
+          </p>
+        </div>
+      </article>
+
+      <!-- CASE 3 -->
+      <article class="case" id="case-pagotic">
         <div class="case__media">
           <figure>
             <video src="../../video/pagotic-rebrand.mp4" width="1280" height="720"
@@ -236,7 +295,7 @@
           </figure>
         </div>
         <div class="case__body">
-          <p class="case__num" aria-hidden="true">02</p>
+          <p class="case__num" aria-hidden="true">03</p>
           <p class="case__meta">Pago TIC · Payments fintech · 2020–2021</p>
           <h3>The design system of a fintech</h3>
           <p class="case__resumen">The company's design system and everything built on it: checkout, back office, landing pages, mailings and the rename campaign artwork.</p>
@@ -278,8 +337,8 @@
         </div>
       </article>
 
-      <!-- CASE 3 -->
-      <article class="case" id="case-unicef">
+      <!-- CASE 4 -->
+      <article class="case case--alt" id="case-unicef">
         <div class="case__media">
           <figure>
             <img src="../../img/unicef.webp"
@@ -295,7 +354,7 @@
           </figure>
         </div>
         <div class="case__body">
-          <p class="case__num" aria-hidden="true">03</p>
+          <p class="case__num" aria-hidden="true">04</p>
           <p class="case__meta">Inmental Interactive · UNICEF · 2016–2020</p>
           <h3>Donating from a phone, without friction</h3>
           <p class="case__resumen">A mobile-first donation flow of few steps, with preset amounts and recurring giving offered within the same step, not afterwards.</p>
@@ -334,8 +393,8 @@
         </div>
       </article>
 
-      <!-- CASE 4 -->
-      <article class="case case--alt" id="case-multishan">
+      <!-- CASE 5 -->
+      <article class="case" id="case-multishan">
         <div class="case__media case__media--mosaico">
           <figure>
             <img src="../../img/multishan-lobby.webp"
@@ -357,7 +416,7 @@
           </figure>
         </div>
         <div class="case__body">
-          <p class="case__num" aria-hidden="true">04</p>
+          <p class="case__num" aria-hidden="true">05</p>
           <p class="case__meta">Inmental Interactive · Multishan, Spain · 2020</p>
           <h3>A trade fair without the fair</h3>
           <p class="case__resumen">Walkable halls with spatial navigation instead of a menu, to keep the logic of walking a trade fair that could no longer be visited.</p>
