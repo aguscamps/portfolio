@@ -52,6 +52,26 @@ html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
   * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
 
+/* Barras de scroll con la paleta del sitio. La nativa del sistema desafina, sobre
+   todo dentro del modal oscuro. Se dejan en 10px, no en 4px: más finas que eso
+   cuestan de agarrar con el mouse. Los tokens ya cambian solos en modo oscuro. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--ink-2) 45%, transparent) transparent;
+}
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background-color: color-mix(in srgb, var(--ink-2) 45%, transparent);
+  border: 2px solid transparent;
+  background-clip: content-box;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(in srgb, var(--ink-2) 75%, transparent);
+}
+::-webkit-scrollbar-corner { background: transparent; }
+
 body {
   margin: 0;
   background: var(--bg);
@@ -137,7 +157,7 @@ a:hover { color: var(--accent); }
 .lang {
   position: relative; flex: none;
   display: grid; place-items: center;
-  width: 44px; height: 44px; margin-left: 1.1rem;
+  width: 44px; height: 44px; margin-left: 1.25rem;
   border-radius: 50%; text-decoration: none;
   background: color-mix(in srgb, var(--bg-soft) 70%, transparent);
   box-shadow: inset 0 0 0 1px var(--line);
@@ -171,7 +191,7 @@ a:hover { color: var(--accent); }
 /* ── Selector de perfil, ahora en la barra ───────────────────── */
 .perfilsw {
   display: inline-flex; align-items: stretch; gap: .15rem;
-  margin: 0 0 0 1.25rem; padding: .2rem; flex: none;
+  margin: 0 0 0 2.25rem; padding: .2rem; flex: none;
   border: 1px solid var(--line); border-radius: 999px;
   background: var(--bg-soft);
 }
@@ -345,9 +365,22 @@ a:hover { color: var(--accent); }
 .case > .case__media figcaption { display: none; }
 .case > .case__media img,
 .case > .case__media video {
-  width: 100%; height: auto; max-height: 22rem; object-fit: contain;
+  width: 100%; height: auto; max-height: 44rem;
   border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,.18);
 }
+/* En la tarjeta la imagen va cuadrada y recortada: llena el panel y todas las
+   tarjetas quedan con la misma silueta. La imagen completa se ve en el modal.
+   El video queda fuera: recortarlo a cuadrado le come la mitad del encuadre. */
+.case > .case__media img { aspect-ratio: 1 / 1; object-fit: cover; }
+.case > .case__media video { object-fit: contain; }
+/* La imagen de la tarjeta abre el caso (ver main.js) */
+.case > .case__media { cursor: pointer; }
+
+/* Dentro del modal, las capturas del sitio en producción son enlaces */
+.modal__cuerpo .case__media a { display: block; }
+.modal__cuerpo .case__media a img { transition: opacity .2s ease; }
+.modal__cuerpo .case__media a:hover img,
+.modal__cuerpo .case__media a:focus-visible img { opacity: .86; }
 .case > .case__media video { background: #000; }
 
 .case__body { padding: clamp(1.5rem, 3vw, 2.25rem); display: flex; flex-direction: column; }
@@ -780,7 +813,7 @@ a:hover { color: var(--accent); }
 }
 .modal__cuerpo .case__media img,
 .modal__cuerpo .case__media video {
-  width: 100%; height: auto; max-height: 46vh; object-fit: contain;
+  width: 100%; height: auto; max-height: 74vh; object-fit: contain;
   border-radius: var(--r); border: 1px solid var(--line); background: var(--bg-soft);
 }
 .modal__cuerpo .case__media video { background: #000; }
