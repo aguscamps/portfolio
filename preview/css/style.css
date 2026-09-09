@@ -370,11 +370,24 @@ a:hover { color: var(--accent); }
 }
 /* En la tarjeta la imagen va cuadrada y recortada: llena el panel y todas las
    tarjetas quedan con la misma silueta. La imagen completa se ve en el modal.
-   El video queda fuera: recortarlo a cuadrado le come la mitad del encuadre. */
-.case > .case__media img { aspect-ratio: 1 / 1; object-fit: cover; }
-.case > .case__media video { object-fit: contain; }
+   El video queda fuera: recortarlo a cuadrado le come la mitad del encuadre.
+   Solo de 901px para arriba: en mobile la tarjeta es un carril con el panel de
+   alto fijo, ahí el aspect-ratio gana sobre el height y desborda el panel. */
+@media (min-width: 901px) {
+  .case > .case__media img { aspect-ratio: 1 / 1; object-fit: cover; }
+  .case > .case__media video { object-fit: contain; }
+}
 /* La imagen de la tarjeta abre el caso (ver main.js) */
 .case > .case__media { cursor: pointer; }
+
+/* El cuerpo del panel es una grilla y el carril de imágenes hereda
+   min-width: auto, así que no puede encogerse por debajo del ancho mínimo de
+   su contenido: en mobile forzaba 487px dentro de 382 y aparecía scroll
+   horizontal con el texto cortado. Con min-width 0 se ajusta al contenedor y
+   el deslizamiento sigue funcionando por el overflow-x del carril. */
+.modal__cuerpo > *,
+.modal__cuerpo .carrusel,
+.modal__cuerpo .case__media > figure { min-width: 0; }
 
 /* Dentro del modal, las capturas del sitio en producción son enlaces */
 .modal__cuerpo .case__media a { display: block; }
