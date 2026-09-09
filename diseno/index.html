@@ -230,9 +230,9 @@
         <div class="case__media">
           <figure>
             <img src="../img/sc-mosaico.webp"
-                 srcset="../img/sc-mosaico-800.webp 800w, ../img/sc-mosaico.webp 1600w" sizes="(max-width: 900px) 92vw, 1200px" width="1600" height="1000" loading="lazy"
-                 alt="Mosaico del proyecto Super Carnes. En el centro, la librería de componentes en Figma con el selector de unidad o peso, y debajo la ficha en producción con el selector de unidad, kilogramo y libra y el total recalculado. Alrededor, el listado de carnes con precio doble por unidad y por kilo, y el home.">
-            <figcaption>El archivo de Figma y el sitio en producción: la ficha resolvió el selector en tres unidades con el total a la vista.</figcaption>
+                 srcset="../img/sc-mosaico-800.webp 800w, ../img/sc-mosaico.webp 1200w" sizes="(max-width: 900px) 92vw, 1200px" width="1200" height="1000" loading="lazy"
+                 alt="Mosaico del proyecto Super Carnes. En el centro, el listado en producción: cada tarjeta muestra el precio por unidad y por kilo, la equivalencia entre las dos y un botón para agregar. Arriba, el archivo de Figma con la librería de componentes y las dos versiones de home. Abajo, la ficha con el selector de unidad, kilogramo y libra, y el home publicado.">
+            <figcaption>El archivo de Figma y el sitio en producción: la tarjeta del listado quedó con los dos precios, la equivalencia y el botón para agregar.</figcaption>
           </figure>
           <figure>
             <img src="../img/sc-figma.webp"
@@ -259,7 +259,7 @@
           <p class="case__num" aria-hidden="true">02</p>
           <p class="case__meta">Improntus · Cliente Super Carnes, Panamá</p>
           <h3>Comprar por peso o por unidad, desde la tarjeta</h3>
-          <p class="case__resumen">Un catálogo donde la carne se vende por peso y la despensa por unidad, con compra rápida desde la tarjeta y el total a la vista antes de agregar.</p>
+          <p class="case__resumen">Un catálogo donde el mismo producto se puede agregar por peso o por unidad, con compra rápida desde la tarjeta y el total a la vista antes de agregar.</p>
 
           <div class="case__detalle">
           <dl class="facts">
@@ -267,13 +267,13 @@
             <dd>Super Carnes es una cadena de supermercados panameña con foco en carnicería. Pidieron un sitio de compra ágil y un diseño contemporáneo, que no se leyera como un e-commerce tradicional.</dd>
 
             <dt>El problema</dt>
-            <dd>Una tarjeta de producto asume un precio fijo por unidad, pero acá el mismo catálogo mezcla cortes que se venden por kilo con productos de despensa que se venden por unidad. El cliente necesita elegir en qué unidad compra, ver a cuánto equivale la otra y saber cuánto va a pagar por esa cantidad, todo antes de agregar al carrito y sin entrar a la ficha.</dd>
+            <dd>Una tarjeta de producto asume un precio fijo por unidad y acá eso no alcanzaba. El catálogo mezcla cortes que se venden por kilo con productos de despensa que se venden por unidad, y además un mismo producto puede agregarse por peso o por unidad según lo que prefiera el cliente. El desafío fue meter toda esa información junta (el precio en las dos unidades, la equivalencia entre una y otra, el selector, la cantidad y el total de esa cantidad) en el espacio de una tarjeta, sin convertir la pantalla en un formulario y sin que el listado pierda la calma.</dd>
 
             <dt>Qué hice</dt>
             <dd>Diseñé la interfaz completa del rediseño: home en dos versiones, listado con compra rápida desde la tarjeta, ficha de producto, carrito, checkout en dos pasos, cuenta, listas y autenticación, sobre una librería de componentes con estilos de texto y color propios. La decisión de fondo fue tratar la unidad de venta como una variante del producto y no como un caso especial: la ficha se diseñó en versiones por unidad, por kilo y por las dos, cada una con su estado en oferta.</dd>
 
             <dt>Resultado</dt>
-            <dd>Estuve solo en la etapa de diseño: de ahí seguí con New Balance, así que no maqueté este sitio ni seguí su implementación. Hoy está publicado y la idea llegó a producción: la tarjeta del listado muestra el precio por unidad y por kilo con su equivalencia y un botón para agregar sin entrar, y la ficha resolvió el selector en tres unidades —unidad, kilogramo y libra— con el total recalculándose y el aviso de que puede variar según el peso final.</dd>
+            <dd>Se resolvió con éxito y está en producción. La tarjeta del listado muestra el precio por unidad y por kilo con su equivalencia y un botón para agregar sin entrar a la ficha, y la ficha llevó el selector a tres unidades (unidad, kilogramo y libra) con el total recalculándose al cambiar la cantidad y el aviso de que puede variar según el peso final. Toda esa información entra en la tarjeta sin apretar el listado ni volverlo un formulario.</dd>
           </dl>
           <p class="case__links">
             <a href="https://supercarnes.com" target="_blank" rel="noopener">supercarnes.com</a>
@@ -348,16 +348,28 @@
       <article class="case case--alt" id="caso-unicef">
         <div class="case__media">
           <figure>
-            <img src="../img/unicef.webp"
-                 srcset="../img/unicef-800.webp 800w, ../img/unicef.webp 1600w" sizes="(max-width: 900px) 92vw, 640px" width="1600" height="1000" loading="lazy"
-                 alt="Campaña Ponete en sus zapatas de UNICEF en el celular: pantalla de donación con montos y pago con tarjeta.">
-            <figcaption>UNICEF — donación desde el celular</figcaption>
+            <img src="../img/unicef-mosaico.webp"
+                 srcset="../img/unicef-mosaico-800.webp 800w, ../img/unicef-mosaico.webp 1600w" sizes="(max-width: 900px) 92vw, 1200px" width="1600" height="1000" loading="lazy"
+                 alt="Mosaico del proyecto: el sitio de la campaña Crecer Juntos en desktop, las pantallas del flujo de donación en el celular, las nueve tarjetas de crédito ilustradas del selector de pago, la historia de Instagram y el mailing.">
+            <figcaption>El sitio, el flujo de donación y las piezas de campaña</figcaption>
+          </figure>
+          <figure>
+            <img src="../img/unicef-flujo.webp"
+                 srcset="../img/unicef-flujo-960.webp 960w, ../img/unicef-flujo.webp 1600w" sizes="(max-width: 900px) 92vw, 1200px" width="1600" height="570" loading="lazy"
+                 alt="Las cinco pantallas del flujo en el celular: la landing con tres datos, la elección del monto mensual, la elección del medio de pago, los datos de la tarjeta y el agradecimiento con la descarga de la guía.">
+            <figcaption>El flujo completo: tres datos, monto, medio de pago y la guía como agradecimiento</figcaption>
+          </figure>
+          <figure>
+            <img src="../img/unicef-campania.webp"
+                 srcset="../img/unicef-campania-960.webp 960w, ../img/unicef-campania.webp 1600w" sizes="(max-width: 900px) 92vw, 1200px" width="1600" height="900" loading="lazy"
+                 alt="Piezas de campaña para redes: cinco historias verticales de Instagram de Crecer Juntos y Aprendé Jugando, un posteo cuadrado de feed y dos piezas de Facebook.">
+            <figcaption>Las piezas de historia y de feed que llevaban el tráfico al sitio</figcaption>
           </figure>
           <figure>
             <img src="../img/unicef-pieza.webp"
-                 srcset="../img/unicef-pieza-800.webp 800w, ../img/unicef-pieza.webp 1600w" sizes="(max-width: 900px) 92vw, 640px" width="1600" height="1000" loading="lazy"
+                 srcset="../img/unicef-pieza-800.webp 800w, ../img/unicef-pieza.webp 1600w" sizes="(max-width: 900px) 92vw, 1200px" width="1600" height="1000" loading="lazy"
                  alt="Libro de actividades de UNICEF, con juegos y laberintos ilustrados, abierto y en portada.">
-            <figcaption>UNICEF — libro de actividades para donantes</figcaption>
+            <figcaption>El libro de actividades que se entregaba a los donantes</figcaption>
           </figure>
         </div>
         <div class="case__body">
@@ -380,20 +392,23 @@
             <dt>Qué hice</dt>
             <dd>Diseñé el sitio con enfoque mobile first y un flujo de pago simple y transparente:
               montos preestablecidos, para que el usuario no tenga que decidir una cifra desde cero,
-              y donación recurrente ofrecida dentro del mismo paso en lugar de después. Diseñé
-              también las campañas de redes y de mailing que llevaban tráfico al sitio, y un libro
-              de actividades descargable e imprimible que se entregaba como regalo a los
-              donantes.</dd>
+              y donación recurrente ofrecida dentro del mismo paso en lugar de después. El selector
+              de medio de pago se resolvió con ilustración propia: las nueve tarjetas de la plaza
+              dibujadas una por una. Diseñé también las campañas de redes y de mailing que llevaban
+              tráfico al sitio, y un libro de actividades descargable e imprimible que se entregaba
+              como regalo a los donantes.</dd>
 
             <dt>Resultado</dt>
             <dd>Un recorrido de donación de pocos pasos, legible en pantalla chica, con la
-              recurrencia integrada al flujo.</dd>
+              recurrencia integrada al flujo. Las piezas de campaña circularon en las cuentas de
+              UNICEF y en las de sus embajadores: una de las historias la publicó la cuenta de
+              Lionel Messi.</dd>
           </dl>
           </div>
 
           <ul class="tags">
             <li>Mobile first</li><li>Diseño de flujo</li><li>UI</li><li>Diseño editorial</li>
-            <li>Campañas</li>
+            <li>Campañas</li><li>Ilustración</li>
           </ul>
           <p class="case__acciones">
             <button class="case__abrir" type="button">Ver el caso completo</button>
@@ -427,7 +442,7 @@
           <p class="case__num" aria-hidden="true">05</p>
           <p class="case__meta">Inmental Interactive · Multishan, España · 2020</p>
           <h3>Una feria de exposiciones sin feria</h3>
-          <p class="case__resumen">Salas recorribles con navegación espacial en lugar de menú, para conservar la lógica de caminar una feria que ya no se podía visitar.</p>
+          <p class="case__resumen">Salas recorribles con navegación espacial en lugar de menú, para conservar la lógica de caminar una feria que, en plena pandemia de COVID, ya no se podía visitar.</p>
 
 
           <div class="case__detalle">
