@@ -188,6 +188,30 @@
       };
     }
 
+    /* Aviso de que el caso sigue más abajo: la imagen ocupa casi todo el panel
+       y sin esto el texto queda invisible. Se apaga al llegar al final. */
+    var cajaModal = modal.querySelector('.modal__caja');
+    var bajar = document.createElement('button');
+    bajar.type = 'button';
+    bajar.className = 'modal__bajar';
+    bajar.innerHTML = (document.documentElement.lang === 'en' ? 'Read the case' : 'Leer el caso')
+      + '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">'
+      + '<path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"'
+      + ' stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    bajar.addEventListener('click', function () {
+      cuerpo.scrollBy({
+        top: cuerpo.clientHeight * 0.78,
+        behavior: quieto.matches ? 'auto' : 'smooth'
+      });
+    });
+    cajaModal.appendChild(bajar);
+
+    function marcarFin() {
+      var fin = cuerpo.scrollTop + cuerpo.clientHeight >= cuerpo.scrollHeight - 24;
+      cajaModal.dataset.fin = String(fin);
+    }
+    cuerpo.addEventListener('scroll', marcarFin, { passive: true });
+
     function abrir(caso, boton) {
       disparador = boton;
 
@@ -203,6 +227,8 @@
 
       cuerpo.scrollTop = 0;
       modal.showModal();
+      /* El alto real recién se conoce con el panel abierto */
+      requestAnimationFrame(marcarFin);
     }
 
     /* Idempotente: se puede llamar más de una vez sin duplicar nada. */
