@@ -17,6 +17,9 @@
   --ink:     #131b21;
   --ink-2:   #5a6b74;
   --shadow:  0 1px 2px rgba(16,45,60,.05), 0 10px 28px rgba(16,45,60,.07);
+  --claro:   #7fd3e6;          /* el acento sobre fondo oscuro */
+  --halo-a:  60,190,220;       /* halos del hero, en RGB para poder darles alfa */
+  --halo-b:  32,120,150;
   --wrap:    1120px;
   --r:       10px;
   --sans:    'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
@@ -94,6 +97,32 @@ a:hover { color: var(--accent); }
   background: var(--deep); color: #fff; padding: .75rem 1.25rem; border-radius: 0 0 var(--r) 0;
 }
 .skip:focus { left: 0; }
+
+/* ── Paletas ─────────────────────────────────────────────────
+   El visitante elige el color del sitio. Cada paleta redefine sólo los
+   tonos: el resto del CSS ya trabaja con esas variables. */
+[data-tema="indigo"] {
+  --deep: #1d2a63; --mid: #4a58a6; --accent: #5a68dd; --warm: #e8865c;
+  --claro: #9fb0ff; --halo-a: 110,125,255; --halo-b: 60,70,150;
+}
+[data-tema="bosque"] {
+  --deep: #123a2b; --mid: #2f6e52; --accent: #2f9e6b; --warm: #d9a441;
+  --claro: #7fe3ae; --halo-a: 70,210,150; --halo-b: 30,110,80;
+}
+
+/* El selector: tres puntos al lado del idioma, nada más */
+.tema { display: flex; align-items: center; gap: .4rem; flex: none; margin-left: .9rem; }
+.tema__op {
+  width: 13px; height: 13px; padding: 0; border-radius: 50%; cursor: pointer;
+  background: var(--p);
+  border: 1px solid color-mix(in srgb, var(--ink) 22%, transparent);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.tema__op:hover, .tema__op:focus-visible { transform: scale(1.2); }
+.tema__op[aria-pressed="true"] {
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 3.5px var(--p);
+}
+@media (max-width: 430px) { .tema { display: none; } }
 
 /* ── Topbar ─────────────────────────────────────────────── */
 .topbar {
@@ -227,8 +256,8 @@ a:hover { color: var(--accent); }
 .hero {
   position: relative; isolation: isolate; overflow: hidden;
   background:
-    radial-gradient(700px 560px at 70% 32%, rgba(60,190,220,.11), transparent 64%),
-    radial-gradient(900px 560px at 16% 6%, rgba(32,120,150,.10), transparent 60%),
+    radial-gradient(700px 560px at 70% 32%, rgba(var(--halo-a),.11), transparent 64%),
+    radial-gradient(900px 560px at 16% 6%, rgba(var(--halo-b),.10), transparent 60%),
     linear-gradient(180deg, #05070a 0%, #070b10 55%, #090e14 100%);
   color: #f2eee8;
   padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(3rem, 6vw, 4.5rem);
@@ -251,7 +280,7 @@ a:hover { color: var(--accent); }
   line-height: var(--h1-alto); letter-spacing: var(--h1-track); font-weight: var(--h1-peso);
   text-wrap: balance;
 }
-.hero h1 span { color: #7fd3e6; }
+.hero h1 span { color: var(--claro); }
 .hero__lead {
   margin: 0 0 1.15rem; max-width: 58ch;
   font-size: clamp(1.0625rem, 1.8vw, 1.1875rem); line-height: 1.68; color: #c3dde5;
@@ -268,7 +297,7 @@ a:hover { color: var(--accent); }
 .hero__facts li { display: flex; flex-direction: column; }
 .hero__facts b {
   font-family: var(--display); font-size: 2.5rem; line-height: 1;
-  color: #7fd3e6; font-weight: 400; letter-spacing: -.05em;
+  color: var(--claro); font-weight: 400; letter-spacing: -.05em;
 }
 .hero__facts span {
   font-size: .8125rem; color: #9cc3ce; margin-top: .5rem;
@@ -291,7 +320,7 @@ a:hover { color: var(--accent); }
   transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
 }
 .btn:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.5); color: #fff; transform: translateY(-1px); }
-.btn--primary { background: #7fd3e6; border-color: #7fd3e6; color: #0d2f3b; }
+.btn--primary { background: var(--claro); border-color: var(--claro); color: #0d2f3b; }
 .btn--primary:hover { background: #a5e2f0; border-color: #a5e2f0; color: #0d2f3b; }
 
 /* ── Secciones ──────────────────────────────────────────── */
@@ -751,7 +780,7 @@ a:hover { color: var(--accent); }
 }
 .hero__panel dt {
   font-size: .6875rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-  color: #7fd3e6;
+  color: var(--claro);
 }
 .hero__panel dd {
   margin: 0 0 .85rem; font-size: .875rem; line-height: 1.45; color: #cfe6ec;
@@ -947,8 +976,8 @@ a:hover { color: var(--accent); }
 /* Malla de líneas, casi imperceptible, que se desvanece hacia abajo */
 .hero::after {
   background-image:
-    linear-gradient(rgba(120,200,225,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(120,200,225,.05) 1px, transparent 1px);
+    linear-gradient(rgba(var(--halo-a),.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--halo-a),.05) 1px, transparent 1px);
   background-size: 78px 78px;
   mask-image: radial-gradient(820px 560px at 72% 24%, #000 12%, transparent 72%);
   opacity: .85;
@@ -959,6 +988,63 @@ a:hover { color: var(--accent); }
   @keyframes malla { to { transform: translate3d(-18px, -12px, 0); } }
 }
 
+
+/* ── Elementos orbitando el rostro ───────────────────────────
+   Fichas con los signos del oficio: código en la página de frontend,
+   herramientas de diseño en la otra. Van detrás del texto, así que
+   nunca tapan nada, y se corren con el scroll a distinta velocidad. */
+.orbe {
+  position: absolute; inset: 0; z-index: -1;
+  margin: 0; padding: 0; list-style: none; pointer-events: none;
+}
+.orbe__i {
+  position: absolute; left: var(--x); top: var(--y);
+  transform: translate3d(-50%, calc(-50% + var(--sy, 0px)), 0);
+  will-change: transform;
+}
+.orbe__i > span {
+  display: grid; place-items: center;
+  width: var(--w); height: var(--w);
+  border-radius: 30%;
+  font-family: var(--display); font-weight: 600;
+  font-size: calc(var(--w) * .32); letter-spacing: -.02em;
+  color: var(--c);
+  background:
+    linear-gradient(150deg,
+      color-mix(in srgb, var(--c) 20%, transparent),
+      color-mix(in srgb, var(--c) 6%, transparent)),
+    rgba(8, 16, 22, .72);
+  border: 1px solid color-mix(in srgb, var(--c) 34%, transparent);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, .45),
+    0 0 0 1px rgba(255, 255, 255, .03) inset,
+    0 0 28px color-mix(in srgb, var(--c) 16%, transparent);
+  backdrop-filter: blur(3px);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .orbe__i > span {
+    animation: orbitar var(--t) ease-in-out var(--d) infinite alternate;
+  }
+  @keyframes orbitar {
+    to { transform: translate3d(0, -14px, 0) rotate(var(--r)); }
+  }
+}
+/* Adobe va siempre en rojo, sobre su cuadrado: es la regla de marca */
+.orbe__i--adobe > span {
+  color: #fff;
+  background: #e8352e;
+  border-color: #e8352e;
+  border-radius: 26%;
+  font-weight: 700;
+  font-size: calc(var(--w) * .46);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, .45),
+    0 0 30px rgba(232, 53, 46, .28);
+  backdrop-filter: none;
+}
+
+/* Sin rostro no hay nada alrededor de qué orbitar */
+@media (max-width: 900px) { .orbe { display: none; } }
 
 /* ── El rostro, como fondo del hero ──────────────────────────
    Muy oscurecido y desaturado: es presencia, no retrato. Se apaga

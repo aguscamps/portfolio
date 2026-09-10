@@ -10,6 +10,7 @@
 <link rel="preload" href="../fonts/spacegrotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../css/style.css">
+<script>try{var t=localStorage.getItem("tema");if(t)document.documentElement.dataset.tema=t}catch(e){}</script>
 <link rel="canonical" href="https://aguscamps.github.io/portfolio/en/">
 <link rel="alternate" hreflang="es" href="https://aguscamps.github.io/portfolio/">
 <link rel="alternate" hreflang="en" href="https://aguscamps.github.io/portfolio/en/">
@@ -68,6 +69,11 @@
       <span class="lang__actual" aria-hidden="true">EN</span>
       <span class="lang__otro" aria-hidden="true">ES</span>
     </a>
+    <div class="tema" role="group" aria-label="Site colour">
+      <button class="tema__op" type="button" data-tema="" style="--p:#1f9db8" aria-label="Teal palette"></button>
+      <button class="tema__op" type="button" data-tema="indigo" style="--p:#5a68dd" aria-label="Indigo palette"></button>
+      <button class="tema__op" type="button" data-tema="bosque" style="--p:#2f9e6b" aria-label="Green palette"></button>
+    </div>
   </div>
 </header>
 
@@ -83,6 +89,11 @@
              sizes="72vw" alt="">
       </picture>
     </div>
+  <ul class="orbe" aria-hidden="true">
+    <li class="orbe__i orbe__i--adobe" data-k=".14" style="--x:63%; --y:30%; --w:3.5rem; --c:#7fd3e6; --t:7s; --d:0s; --r:-5deg"><span>A</span></li>
+    <li class="orbe__i" data-k=".22" style="--x:78%; --y:10%; --w:3rem; --c:#a8b6ff; --t:8.5s; --d:.6s; --r:6deg"><span>{ }</span></li>
+    <li class="orbe__i" data-k=".26" style="--x:92%; --y:26%; --w:3rem; --c:#9fe8b8; --t:8s; --d:.9s; --r:5deg"><span>CSS</span></li>
+  </ul>
     <div class="wrap hero__in">
       <div class="hero__txt">
       <p class="hero__kicker">Agustín Carlos Campos Bobbiesi</p>

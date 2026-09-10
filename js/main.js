@@ -294,6 +294,63 @@
     modal.addEventListener('close', alCerrar);
   }
 
+  /* Color del sitio ----------------------------------------------------
+     Tres paletas. La elección se guarda y se vuelve a aplicar en la cabecera
+     del documento, antes de pintar, así no hay parpadeo al cargar. */
+  var tema = document.querySelector('.tema');
+
+  if (tema) {
+    var opciones = Array.prototype.slice.call(tema.querySelectorAll('.tema__op'));
+
+    function marcar() {
+      var actual = document.documentElement.dataset.tema || '';
+      opciones.forEach(function (o) {
+        o.setAttribute('aria-pressed', String((o.dataset.tema || '') === actual));
+      });
+    }
+
+    tema.addEventListener('click', function (e) {
+      var boton = e.target.closest('.tema__op');
+      if (!boton) return;
+      var elegida = boton.dataset.tema;
+      if (elegida) document.documentElement.dataset.tema = elegida;
+      else delete document.documentElement.dataset.tema;
+      try {
+        if (elegida) localStorage.setItem('tema', elegida);
+        else localStorage.removeItem('tema');
+      } catch (err) { /* modo privado: se pierde al salir, no importa */ }
+      marcar();
+    });
+
+    marcar();
+  }
+
+  /* Elementos orbitando el rostro del hero ------------------------------
+     Cada ficha se corre con el scroll a distinta velocidad: el conjunto
+     respira en lugar de moverse en bloque. */
+  var orbes = Array.prototype.slice.call(document.querySelectorAll('.orbe__i'));
+
+  if (orbes.length && !quieto.matches) {
+    var pendiente = false;
+
+    function moverOrbes() {
+      pendiente = false;
+      var y = window.scrollY;
+      orbes.forEach(function (o) {
+        var k = parseFloat(o.dataset.k) || 0.1;
+        o.style.setProperty('--sy', (y * k).toFixed(1) + 'px');
+      });
+    }
+
+    window.addEventListener('scroll', function () {
+      if (pendiente) return;
+      pendiente = true;
+      requestAnimationFrame(moverOrbes);
+    }, { passive: true });
+
+    moverOrbes();
+  }
+
   /* Email -------------------------------------------------------------- */
   document.querySelectorAll('.mail').forEach(function (el) {
     var dir = el.dataset.u + String.fromCharCode(64) + el.dataset.d;
