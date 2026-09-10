@@ -617,9 +617,20 @@ a:hover { color: var(--accent); }
   transition: transform .15s, background .15s, filter .15s;
 }
 .burbuja:hover { transform: translateY(-2px); }
-.burbuja--wa { width: 2.35rem; height: 2.35rem; background: #25D366; color: #fff; }
+/* El verde de WhatsApp gritaba más que cualquier cosa de la página. Queda
+   discreto, apoyado en el ícono para que se entienda, y muestra su color
+   recién al pasar por encima. */
+.burbuja--wa {
+  width: 2.35rem; height: 2.35rem;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent);
+  color: color-mix(in srgb, #25D366 62%, var(--ink-2));
+  backdrop-filter: blur(6px);
+}
 .burbuja--wa svg { width: 18px; height: 18px; }
-.burbuja--wa:hover { background: #1eb455; color: #fff; }
+.burbuja--wa:hover, .burbuja--wa:focus-visible {
+  background: #25D366; border-color: #25D366; color: #fff;
+}
 .burbuja--top { background: var(--deep); color: var(--bg); }
 .burbuja--top:hover { background: var(--mid); color: var(--bg); }
 @media (prefers-color-scheme: dark) {
