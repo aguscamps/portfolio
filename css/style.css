@@ -442,11 +442,32 @@ a:hover { color: var(--accent); }
 .modal__cuerpo .carrusel,
 .modal__cuerpo .case__media > figure { min-width: 0; }
 
-/* Dentro del modal, las capturas del sitio en producción son enlaces */
-.modal__cuerpo .case__media a { display: block; }
-.modal__cuerpo .case__media a img { transition: opacity .2s ease; }
-.modal__cuerpo .case__media a:hover img,
-.modal__cuerpo .case__media a:focus-visible img { opacity: .86; }
+/* Las capturas del sitio en producción son enlaces. Al pasar por encima se
+   dice adónde llevan: sin eso, nada distingue una captura que abre el sitio
+   de una que no. */
+.case__media a { position: relative; display: block; }
+.case__media a img { transition: opacity .2s ease; }
+.case__media a:hover img,
+.case__media a:focus-visible img { opacity: .78; }
+.case__media a::after {
+  content: attr(data-ver);
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%) scale(.94);
+  padding: .62rem 1.15rem; border-radius: 999px; white-space: nowrap;
+  font-family: var(--display); font-size: .9375rem; font-weight: 500;
+  letter-spacing: -.01em;
+  color: var(--bg); background: color-mix(in srgb, var(--deep) 94%, transparent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  opacity: 0; pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease;
+}
+.case__media a:hover::after,
+.case__media a:focus-visible::after {
+  opacity: 1; transform: translate(-50%, -50%) scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .case__media a::after { transition: opacity .18s ease; }
+}
 .case > .case__media video { background: #000; }
 
 .case__body { padding: clamp(1.5rem, 3vw, 2.25rem); display: flex; flex-direction: column; }
@@ -586,7 +607,7 @@ a:hover { color: var(--accent); }
 /* ── Burbujas flotantes (WhatsApp + volver arriba) ──────── */
 .burbujas {
   position: fixed; right: clamp(1rem, 3vw, 2rem); bottom: clamp(1rem, 3vw, 2rem); z-index: 60;
-  display: grid; gap: .7rem; justify-items: center;
+  display: grid; gap: 1.4rem; justify-items: center;
 }
 .burbuja {
   display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%;
