@@ -113,7 +113,8 @@ a:hover { color: var(--accent); }
 /* El selector flota en el margen izquierdo, en vertical: está a mano sin
    ocupar lugar en la barra, que ya va justa. */
 .tema {
-  position: fixed; left: clamp(.55rem, 1.5vw, 1.05rem); top: 50%;
+  /* Se apoya en el borde de la columna de contenido, nunca sobre el texto */
+  position: fixed; left: calc((100vw - var(--wrap)) / 2 - 2.9rem); top: 50%;
   transform: translateY(-50%); z-index: 40;
   display: flex; flex-direction: column; gap: .55rem;
   padding: .6rem .48rem; border-radius: 999px;
@@ -132,8 +133,15 @@ a:hover { color: var(--accent); }
 .tema__op[aria-pressed="true"] {
   box-shadow: 0 0 0 2px var(--bg), 0 0 0 3.5px var(--p);
 }
-/* En pantalla chica el margen no alcanza y se montaría sobre el texto */
-@media (max-width: 720px) { .tema { display: none; } }
+/* Cuando el margen deja de alcanzar, deja de flotar por su cuenta y se
+   suma a la columna de burbujas, que es el lugar que el sitio ya tiene
+   reservado para lo flotante. */
+@media (max-width: 1240px) {
+  .tema {
+    position: static; transform: none;
+    gap: .5rem; padding: .55rem .42rem;
+  }
+}
 
 /* ── Topbar ─────────────────────────────────────────────── */
 .topbar {
